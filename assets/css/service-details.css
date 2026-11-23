@@ -1,0 +1,462 @@
+/* ==========================================================================
+   CELESTIA — Service Detail Pages Architecture
+   5 Unique Viewport-Fitted Heroes, 5 Distinct Image-Rich CTAs & Detail UI
+   ========================================================================== */
+
+/* Breadcrumb Bar inside Hero */
+.sd-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.sd-breadcrumb a {
+  color: var(--rose);
+}
+
+.sd-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   SERVICE HERO 1: Full Turnkey Planning (Dark Emerald Split + Floating Chip)
+   -------------------------------------------------------------------------- */
+.hero-sd-turnkey {
+  min-height: calc(92svh - var(--header-height));
+  max-height: 780px;
+  display: flex;
+  align-items: center;
+  padding: 36px var(--container-pad);
+  background: linear-gradient(135deg, var(--emerald-deep) 0%, var(--emerald) 100%);
+  color: #FAF7F2;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-sd-turnkey .sd-breadcrumb { color: rgba(250, 247, 242, 0.72); }
+.hero-sd-turnkey h1 { font-size: clamp(34px, 4.4vw, 60px); font-weight: 800; color: #FFFFFF; margin-bottom: 16px; }
+.hero-sd-turnkey p { color: rgba(250, 247, 242, 0.88); font-size: 16.5px; margin-bottom: 28px; }
+
+.sd-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(28px, 4.5vw, 64px);
+  align-items: center;
+}
+
+.sd-hero-frame {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--champagne);
+  box-shadow: var(--shadow-lg);
+}
+
+.sd-hero-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.sd-floating-stat {
+  position: absolute;
+  bottom: 16px;
+  inset-inline-start: 16px;
+  background: rgba(9, 35, 27, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--champagne);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  color: #FFFFFF;
+}
+
+.sd-floating-stat strong { display: block; font-size: 16px; color: var(--champagne-light); }
+.sd-floating-stat small { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250, 247, 242, 0.8); }
+
+/* --------------------------------------------------------------------------
+   SERVICE HERO 2: Floral Architecture (Porcelain Arched Botanical Frame)
+   -------------------------------------------------------------------------- */
+.hero-sd-floral {
+  min-height: calc(92svh - var(--header-height));
+  max-height: 780px;
+  display: flex;
+  align-items: center;
+  padding: 36px var(--container-pad);
+  background: var(--bg);
+}
+
+.hero-sd-floral h1 { font-size: clamp(34px, 4.4vw, 60px); font-weight: 800; margin-bottom: 16px; }
+
+.sd-arch-frame {
+  aspect-ratio: 16 / 11;
+  border-radius: 180px 180px 24px 24px;
+  overflow: hidden;
+  border: 2px solid var(--champagne);
+  box-shadow: var(--shadow-lg);
+}
+
+.sd-arch-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+/* --------------------------------------------------------------------------
+   SERVICE HERO 3: Day-Of Couture Direction (Centered Wide Cinema Frame)
+   -------------------------------------------------------------------------- */
+.hero-sd-direction {
+  min-height: calc(94svh - var(--header-height));
+  max-height: 820px;
+  display: flex;
+  align-items: center;
+  padding: 28px var(--container-pad);
+  text-align: center;
+  background: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 100%);
+}
+
+.hero-sd-direction h1 { font-size: clamp(34px, 4.4vw, 58px); font-weight: 800; max-width: 820px; margin: 0 auto 12px; }
+.hero-sd-direction p { max-width: 620px; margin: 0 auto 24px; font-size: 16.5px; }
+
+.sd-wide-frame {
+  max-width: 1060px;
+  margin: 0 auto;
+  height: clamp(240px, 44svh, 380px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--line-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.sd-wide-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+/* --------------------------------------------------------------------------
+   SERVICE HERO 4: Multi-Day Guest Soirées (Twilight Dual-Horizon Showcase)
+   -------------------------------------------------------------------------- */
+.hero-sd-soirees {
+  min-height: calc(92svh - var(--header-height));
+  max-height: 780px;
+  display: flex;
+  align-items: center;
+  padding: 36px var(--container-pad);
+  background: var(--bg-subtle);
+}
+
+.hero-sd-soirees h1 { font-size: clamp(34px, 4.4vw, 60px); font-weight: 800; margin-bottom: 16px; }
+
+.sd-dual-offset {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.sd-dual-offset figure {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid var(--champagne);
+  box-shadow: var(--shadow-md);
+}
+
+.sd-dual-offset figure:nth-child(2) {
+  transform: translateY(22px);
+}
+
+.sd-dual-offset img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+/* --------------------------------------------------------------------------
+   SERVICE HERO 5: Artisanal Patisserie & Gastronomy (Gilded Culinary Split)
+   -------------------------------------------------------------------------- */
+.hero-sd-patisserie {
+  min-height: calc(92svh - var(--header-height));
+  max-height: 780px;
+  display: flex;
+  align-items: center;
+  padding: 36px var(--container-pad);
+  background: var(--paper);
+}
+
+.hero-sd-patisserie h1 { font-size: clamp(34px, 4.4vw, 60px); font-weight: 800; margin-bottom: 16px; }
+
+/* --------------------------------------------------------------------------
+   Service Detail Content Components
+   -------------------------------------------------------------------------- */
+
+.sd-deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.sd-deliverable-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sd-deliverable-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--champagne);
+  box-shadow: var(--shadow-sm);
+}
+
+.sd-check-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--rose-soft);
+  color: var(--rose);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.sd-deliverable-item h3 { font-size: 18px; margin-bottom: 6px; }
+.sd-deliverable-item p { font-size: 13.5px; margin: 0; }
+
+/* Explore Other Services Switcher Bar */
+.sd-switcher-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sd-switcher-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.sd-switcher-card:hover {
+  border-color: var(--rose);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.sd-switcher-card small { font-size: 10.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); }
+.sd-switcher-card strong { font-size: 16.5px; color: var(--ink); }
+.sd-switcher-card span { font-size: 12.5px; color: var(--muted); margin-top: auto; padding-top: 8px; }
+
+/* --------------------------------------------------------------------------
+   5 UNIQUE IMAGE-RICH CTA STYLINGS FOR SERVICE DETAIL PAGES
+   -------------------------------------------------------------------------- */
+
+/* Service CTA 1: Full-Bleed Estate + Floating Left Porcelain Card */
+.cta-sd-turnkey {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  padding: clamp(28px, 4.5vw, 56px);
+  border: 1.5px solid var(--champagne);
+  box-shadow: var(--shadow-lg);
+  isolation: isolate;
+}
+
+.cta-sd-turnkey > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  z-index: -1;
+}
+
+.cta-sd-turnkey-card {
+  background: var(--paper-glass);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid var(--champagne);
+  border-radius: var(--radius-md);
+  padding: clamp(28px, 4vw, 44px);
+  max-width: 540px;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Service CTA 2: Champagne-Framed Dual Botanical Showcase */
+.cta-sd-floral {
+  background: var(--emerald);
+  color: #FAF7F2;
+  border-radius: var(--radius-lg);
+  padding: clamp(32px, 4.5vw, 56px);
+  border: 1.5px solid var(--champagne);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-sd-floral h2 { color: #FFFFFF; font-size: clamp(28px, 3.4vw, 42px); }
+.cta-sd-floral p { color: rgba(250, 247, 242, 0.88); }
+
+.cta-sd-floral figure {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid var(--champagne);
+}
+
+.cta-sd-floral img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+
+/* Service CTA 3: Sleek Split Bar with Arched Photo */
+.cta-sd-direction {
+  background: var(--paper-elevated);
+  border: 2px solid var(--champagne);
+  border-radius: var(--radius-lg);
+  padding: clamp(32px, 4.5vw, 54px);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-sd-direction figure {
+  aspect-ratio: 16 / 10;
+  border-radius: 100px 20px 100px 20px;
+  overflow: hidden;
+  border: 2px solid var(--rose);
+}
+
+.cta-sd-direction img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+
+/* Service CTA 4: Full-Bleed Golden Hour Hospitality + Frosted Emerald Center */
+.cta-sd-soirees {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(32px, 5vw, 60px);
+  border: 1.5px solid var(--champagne);
+  isolation: isolate;
+}
+
+.cta-sd-soirees > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  z-index: -1;
+}
+
+.cta-sd-soirees::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 22, 17, 0.58);
+  z-index: 0;
+}
+
+.cta-sd-soirees-box {
+  position: relative;
+  z-index: 3;
+  max-width: 620px;
+  background: rgba(9, 35, 27, 0.78);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--champagne);
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 44px);
+  color: #FAF7F2;
+}
+
+.cta-sd-soirees-box h2 { color: #FFFFFF; }
+.cta-sd-soirees-box p { color: rgba(250, 247, 242, 0.9); }
+
+/* Service CTA 5: Asymmetric Tasting Salon Invitation */
+.cta-sd-patisserie {
+  background: var(--paper);
+  border: 1.5px solid var(--line-accent);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: stretch;
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-sd-patisserie-copy { padding: clamp(32px, 5vw, 56px); display: flex; flex-direction: column; justify-content: center; }
+.cta-sd-patisserie figure { position: relative; min-height: 320px; }
+.cta-sd-patisserie img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+
+/* Make Split Cards on services.html clickable anchor cards cleanly */
+a.split-card {
+  text-decoration: none;
+  color: #FAF7F2;
+}
+
+.split-card-cta-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--champagne-light);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.38, 0.26, 0.05, 1.07);
+}
+
+.split-card:is(:hover, :focus-visible, .is-open) .split-card-cta-hint {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.26s;
+}
+
+@media (max-width: 960px) {
+  .hero-sd-turnkey, .hero-sd-floral, .hero-sd-direction, .hero-sd-soirees, .hero-sd-patisserie {
+    min-height: auto;
+    max-height: none;
+    padding-block: 48px;
+  }
+  .sd-hero-grid, .sd-deliverables-grid, .cta-sd-floral, .cta-sd-direction, .cta-sd-patisserie {
+    grid-template-columns: 1fr;
+  }
+  .sd-switcher-grid { grid-template-columns: repeat(2, 1fr); }
+  .sd-dual-offset figure:nth-child(2) { transform: none; }
+}
+
+@media (max-width: 600px) {
+  .sd-switcher-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Contact Us | Flora & Fable Events â€” Luxury Weddings & Celebrations</title>
+  <meta content="Schedule a private champagne consultation with Flora &amp; Fable Events across our Paris, Lake Como, and Udaipur salons." name="description" />
+  
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
+
+  <link href="assets/css/style.css?v=3.0" rel="stylesheet" />
+  <link href="assets/css/cta-hero-styles.css?v=3.0" rel="stylesheet" />
+  <style>
+    .contact-form-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line-accent);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 4.5vw, 52px);
+      box-shadow: var(--shadow-lg);
+    }
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      padding: 13px 15px;
+      font-size: 14px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.25s ease;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 10px var(--rose-glow);
+    }
+    @media (max-width: 680px) {
+      .form-row-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link href="assets/css/effects.css?v=3.0" rel="stylesheet" />
+</head>
+<body class="site-page page-contact" id="top">
+
+<header class="header">
+    <a aria-label="Flora & Fable Events, go to home" class="brand" href="index.html">
+      <div class="brand-logo-wrap">
+        <img src="assets/images/logo.jpg" alt="Flora & Fable Events Logo" class="brand-logo-img" />
+      </div>
+      <div class="brand-type">
+        <strong>FLORA &amp; FABLE</strong>
+        <small>EVENTS &amp; CELEBRATIONS</small>
+      </div>
+    </a>
+    <nav aria-label="Main navigation" class="nav">
+      <div class="dropdown">
+        <a aria-label="Home menu" class="nav-home" href="index.html">Home <svg aria-hidden="true" class="nav-chevron" fill="none" height="15" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24" width="15"><path d="m6 9 6 6 6-6"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="index.html"><span class="menu-tile-icon">&#8962;</span><span class="menu-tile-text"><strong>Home 1</strong><small>The Grand Atelier</small></span></a>
+          <a href="home2.html"><span class="menu-tile-icon">&#10022;</span><span class="menu-tile-text"><strong>Home 2</strong><small>Destination Celebrations</small></span></a>
+        </div>
+      </div>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="packages.html">Packages</a>
+      <a href="gallery.html">Gallery</a>
+      <a aria-current="page" class="active" href="contact.html">Contact Us</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <div class="nav-actions">
+      <button aria-label="Toggle light or dark theme" class="iconbtn" id="themeToggle" title="Toggle Theme">â—</button>
+      <button aria-label="Toggle right-to-left layout" class="iconbtn" id="rtlToggle" title="Toggle RTL">RTL</button>
+      <a class="loginbtn" href="login.html"><span>Couples Login</span> <span class="btn-arrow">&#8599;</span></a>
+      <button aria-label="Open navigation" class="hamburger" id="menuToggle">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: Unique Hero 7 (Minimalist Concierge Salon Header) -->
+    <section class="hero-contact" data-section="1">
+      <div class="container">
+        <div class="hero-contact-grid">
+          <div class="reveal slide-left">
+            <span class="eyebrow" style="justify-content:flex-start;">PRIVATE CONCIERGE DESK</span>
+            <h1>Begin Your Private<br /><em>Consultation.</em></h1>
+            <p style="font-size:17px; margin-bottom:0;">Share your envisioned season, destination, and celebratory aspirations. Every inquiry is reviewed personally by our founding partners within 24 hours.</p>
+          </div>
+          <figure class="hero-contact-photo reveal slide-right">
+            <img src="assets/images/batch3/p39.jpg" alt="Joyful newlywed couple celebrating in sunlit garden" fetchpriority="high" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Private Consultation Inquiry Form -->
+    <section class="section soft" data-section="2">
+      <div class="container">
+        <div class="contact-form-wrap reveal zoom-in">
+          <form id="consultationForm">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="cNames">Couple's Full Names</label>
+                <input id="cNames" placeholder="e.g. Julianne &amp; Liam" required type="text" />
+              </div>
+              <div class="form-group">
+                <label for="cEmail">Private Email Address</label>
+                <input id="cEmail" placeholder="your@email.com" required type="email" />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="cDate">Envisioned Date / Season</label>
+                <input id="cDate" placeholder="e.g. September 2027" type="text" />
+              </div>
+              <div class="form-group">
+                <label for="cGuests">Estimated Guest Count</label>
+                <input id="cGuests" placeholder="e.g. 150 guests" type="text" />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="cDestination">Preferred Destination</label>
+                <select id="cDestination">
+                  <option value="como">Lake Como, Italy</option>
+                  <option value="amalfi">Amalfi Coast / Ravello</option>
+                  <option value="paris">Paris &amp; French ChÃ¢teaux</option>
+                  <option value="tuscany">Tuscany &amp; Val d'Orcia</option>
+                  <option value="global">Global Heritage Sanctuary</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cTier">Preferred Collection</label>
+                <select id="cTier">
+                  <option value="intimate">Intimate Haute Affair ($45k+)</option>
+                  <option value="ethereal" selected>The Ethereal Destination ($85k+)</option>
+                  <option value="royal">The Royal Bespoke ($145k+)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cNotes">Tell Us About Your Vision</label>
+              <textarea id="cNotes" rows="4" placeholder="Describe the atmosphere, architecture, music, and memories you hope to create..."></textarea>
+            </div>
+
+            <button class="btn btn-primary" style="width:100%;" type="submit">Submit Private Inquiry &rarr;</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Our Three Flagship Global Salons (3 strictly unique images) -->
+    <section class="section" data-section="3">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">GLOBAL SALONS</span>
+          <h2>Meet Us In Person.</h2>
+          <p>Private appointments hosted across our three international design studios.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="feature-card reveal slide-left">
+            <div class="visual"><span class="badge">Flagship</span><img src="assets/images/unique/cnt-paris.jpg" alt="Paris Place Vendome architecture" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-index">PARIS &middot; FRANCE</span>
+              <h3>8 Place VendÃ´me</h3>
+              <p>Our original haute couture atelier and botanical swatch library in the heart of Paris.</p>
+            </div>
+          </article>
+
+          <article class="feature-card reveal zoom-in">
+            <div class="visual"><span class="badge">Lakefront</span><img src="assets/images/batch4/b24.jpg" alt="Lake Como coastal estate panorama" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-index">LAKE COMO &middot; ITALY</span>
+              <h3>Via Bellagio, Tremezzo</h3>
+              <p>Waterfront planning suite with private boat docking for Italian villa scouting tours.</p>
+            </div>
+          </article>
+
+          <article class="feature-card reveal slide-right">
+            <div class="visual"><span class="badge">North America</span><img src="assets/images/unique/cnt-ny.jpg" alt="New York Fifth Avenue skyline" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-index">NEW YORK &middot; USA</span>
+              <h3>767 Fifth Avenue</h3>
+              <p>Private consultation salon in Manhattan serving our North American and global couples.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Interactive Flagship Atelier Map & Virtual Location Dossier (iframe) -->
+        <div class="atelier-map-frame reveal zoom-in" style="margin-top:clamp(40px,5vw,60px); border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--champagne); box-shadow:var(--shadow-lg); position:relative; background:var(--paper);">
+          <div style="padding:14px 22px; background:linear-gradient(135deg, #1C080E 0%, #2A0B14 100%); color:#FAF7F2; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line-accent); flex-wrap:wrap; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="color:var(--champagne); font-size:16px;">ðŸ›ï¸</span>
+              <strong style="font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:#FAF7F2;">Flagship Atelier Location &middot; 8 Place VendÃ´me, Paris</strong>
+            </div>
+            <span style="font-size:11px; background:rgba(203,162,88,0.2); color:var(--champagne); padding:3px 10px; border-radius:var(--radius-pill); font-weight:700;">Interactive Atelier Map</span>
+          </div>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.502847192451!2d2.327885376847387!3d48.86767597133405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2c34df062d%3A0x6b09395f87b8d4e9!2sPl.%20Vend%C3%B4me%2C%2075001%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1716470000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="360" 
+            style="border:0; display:block; filter: saturate(0.9) contrast(1.05);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Flora and Fable Flagship Atelier at Place Vendome Paris">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Consultation Roadmap -->
+    <section class="section soft" data-section="4">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">WHAT HAPPENS NEXT</span>
+          <h2>From First Whisper to Blueprint.</h2>
+          <p>Our serene, discreet three-step onboarding experience.</p>
+        </div>
+
+        <div class="tiles-grid-3">
+          <article class="tile reveal slide-left">
+            <figure class="tile-photo"><img src="assets/images/batch4/b27.jpg" alt="Wedding design invitation salon" loading="lazy" /></figure>
+            <span class="tile-no">01</span><h3>24-Hour Personal Reply</h3><p>A senior director reviews your dates and proposes times for a private introductory conversation.</p>
+          </article>
+          <article class="tile reveal zoom-in">
+            <figure class="tile-photo"><img src="assets/images/batch4/b21.jpg" alt="Champagne celebration consultation" loading="lazy" /></figure>
+            <span class="tile-no">02</span><h3>Discovery Over Champagne</h3><p>A 60-minute creative session exploring your aesthetic language, guest rhythm, and venue desires.</p>
+          </article>
+          <article class="tile reveal slide-right">
+            <figure class="tile-photo"><img src="assets/images/batch4/b39.jpg" alt="Amalfi Coast estate dossier preview" loading="lazy" /></figure>
+            <span class="tile-no">03</span><h3>Custom Estate Dossier</h3><p>Receive a bespoke creative deck, transparent budget projection, and private estate short-list.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Direct Departments Directory -->
+    <section class="section" data-section="5">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">DIRECT CHANNELS</span>
+          <h2>Atelier Directory.</h2>
+          <p>Reach the dedicated desk suited to your inquiry.</p>
+        </div>
+
+        <div class="tiles-grid-3">
+          <article class="tile">
+            <h3>Couples Concierge</h3>
+            <p style="margin-bottom:8px;">For new 2026/2027 wedding inquiries &amp; private consultations.</p>
+            <a href="mailto:concierge@florafableevents.example" style="color:var(--rose); font-weight:700;">concierge@florafableevents.example</a>
+          </article>
+          <article class="tile">
+            <h3>Editorial &amp; Press</h3>
+            <p style="margin-bottom:8px;">For publication features, runway lookbooks &amp; high-res archives.</p>
+            <a href="mailto:press@florafableevents.example" style="color:var(--rose); font-weight:700;">press@florafableevents.example</a>
+          </article>
+          <article class="tile">
+            <h3>Artisan Partnerships</h3>
+            <p style="margin-bottom:8px;">For heritage estates, Michelin chefs, florists &amp; film houses.</p>
+            <a href="mailto:artisans@florafableevents.example" style="color:var(--rose); font-weight:700;">artisans@florafableevents.example</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Consultation FAQ -->
+    <section class="section soft" data-section="6">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">CONSULTATION PROTOCOL</span>
+          <h2>Before We Meet.</h2>
+          <p style="max-width:620px; margin:12px auto 0; color:var(--muted); font-size:16px;">Essential protocols regarding salon reservations, mutual non-disclosure, and discreet atelier consultations.</p>
+        </div>
+
+        <div class="faq-contact-wrap">
+          <details class="faq-contact-card" open>
+            <summary>
+              <div class="faq-meta">
+                <span class="faq-contact-badge">Protocol 01 &middot; Confidentiality</span>
+              </div>
+              <h3 class="faq-contact-title">Is the initial private consultation complimentary?</h3>
+            </summary>
+            <div class="faq-contact-body">
+              <div class="faq-contact-inner">
+                Yes. Our introductory 60-minute discovery sessionâ€”whether hosted at our Paris Place Vend&ocirc;me salon or virtually via encrypted videoâ€”is entirely complimentary and strictly confidential.
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-contact-card">
+            <summary>
+              <div class="faq-meta">
+                <span class="faq-contact-badge">Protocol 02 &middot; Discretion</span>
+              </div>
+              <h3 class="faq-contact-title">Do you sign non-disclosure agreements before discussing details?</h3>
+            </summary>
+            <div class="faq-contact-body">
+              <div class="faq-contact-inner">
+                Absolutely. Mutual NDAs are standard practice for all high-profile, royal, and private family celebrations prior to sharing estate contracts, guest rosters, or security particulars.
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-contact-card">
+            <summary>
+              <div class="faq-meta">
+                <span class="faq-contact-badge">Protocol 03 &middot; Atelier Booking</span>
+              </div>
+              <h3 class="faq-contact-title">How soon will our dedicated atelier director respond?</h3>
+            </summary>
+            <div class="faq-contact-body">
+              <div class="faq-contact-inner">
+                Our private client concierge desk confirms all direct appointment requests and estate date verifications within 4 business hours.
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIQUE CTA 7 (Contact): Midnight Emerald VIP Hotline Strip -->
+    <section class="section" data-cta="7">
+      <div class="container">
+        <div class="cta-contact reveal zoom-in">
+          <img class="cta-contact-bg" src="assets/images/batch2/p02.jpg" alt="Romantic newlywed couple walking at sunset" loading="lazy" />
+          <div class="cta-contact-glass">
+            <span class="eyebrow" style="color:var(--champagne-light);">24/7 CONCIERGE HOTLINE</span>
+            <h2>Prefer To Speak Directly?</h2>
+            <p>Our private client concierge desk is available Monday through Saturday for immediate destination date verification.</p>
+            <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="tel:+18005558697">Call +1 (800) 555-VOWS</a>
+              <a class="btn btn-secondary" href="login.html">Existing Couple Sign In &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Complete 5-Column Luxury Footer -->
+  <footer class="footer" id="siteFooter">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <div class="brand-logo-wrap">
+        <img src="assets/images/logo.jpg" alt="Flora & Fable Events Logo" class="brand-logo-img" />
+      </div>
+      <div class="brand-type">
+        <strong>FLORA &amp; FABLE</strong>
+        <small>EVENTS &amp; CELEBRATIONS</small>
+      </div>
+          </a>
+          <p>Haute wedding planning, sculptural floral architecture, and discreet destination orchestration for discerning couples worldwide.</p>
+          <div class="stay-connected">STAY CONNECTED</div>
+          <div class="social-links">
+            <a aria-label="Instagram" href="https://instagram.com" rel="noopener" target="_blank">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a aria-label="Pinterest" href="https://pinterest.com" rel="noopener" target="_blank">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m9 21 3-12m-3 6c-7-5-1-15 6-12 8 3 2 16-3 11"/></svg>
+            </a>
+            <a aria-label="Facebook" href="https://facebook.com" rel="noopener" target="_blank">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a aria-label="YouTube" href="https://youtube.com" rel="noopener" target="_blank">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="4.5" rx="4"/><polygon points="10 9 15 12 10 15"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Explore Flora & Fable</h4>
+          <a href="index.html">Home 1 &middot; Grand Atelier</a>
+          <a href="home2.html">Home 2 &middot; Destinations</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="packages.html">Packages</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Couples Suite</h4>
+          <a href="dashboard.html">Client Dashboard</a>
+          <a href="dashboard.html#checklist">Wedding Checklist</a>
+          <a href="dashboard.html#vendors">Vendor Contracts</a>
+          <a href="dashboard.html#budget">Budget &amp; Payments</a>
+          <a href="login.html">Couples Login</a>
+          <a href="signup.html">Create Account</a>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4 class="footer-heading">Global Salons</h4>
+          <address>
+            <div class="footer-contact-item"><span class="contact-symbol">&#9906;</span><span><strong>Paris Salon</strong><small>8 Place VendÃ´me, Paris</small></span></div>
+            <div class="footer-contact-item"><span class="contact-symbol">&#9906;</span><span><strong>Lake Como Suite</strong><small>Via Bellagio, Tremezzo</small></span></div>
+            <div class="footer-contact-item"><span class="contact-symbol">&#9993;</span><span><a href="mailto:concierge@florafableevents.example">concierge@florafableevents.example</a><small>Direct Inquiries</small></span></div>
+            <div class="footer-contact-item"><span class="contact-symbol">&#9742;</span><span><strong>+1 (800) 555-VOWS</strong><small>Concierge Hotline</small></span></div>
+          </address>
+        </div>
+
+        <div class="footer-col newsletter-box">
+          <h4 class="footer-heading">Private Lookbook</h4>
+          <p>Receive seasonal bridal trend forecasts and heritage estate reveals.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <label class="sr-only" for="newsletterEmail">Email Address</label>
+            <input id="newsletterEmail" placeholder="Your email address" required type="email" />
+            <button aria-label="Subscribe" type="submit">&rarr;</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Flora & Fable Events Luxury Weddings &amp; Events. All rights reserved.</span>
+        <span><a href="#top">Return to Top &uarr;</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="assets/js/app.js?v=3.0"></script>
+  <script src="assets/js/motion.js?v=3.0"></script>
+  <script src="assets/js/effects.js?v=3.0"></script>
+</body>
+</html>

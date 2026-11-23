@@ -1,0 +1,389 @@
+/* ==========================================================================
+   VALENTINA & VOW — Voyage 3D Perspective Slider
+   Imperial Emerald Velvet Stage with Tuscan Rose Gold & Champagne Foil
+   ========================================================================== */
+
+.voyage-section {
+  position: relative;
+}
+
+.voyage-stage {
+  --slide-width: clamp(280px, 34vw, 440px);
+  --slide-aspect: 3 / 2;
+  --wing-offset: 0.82;
+  --wing-scale: 0.84;
+  --slide-transition-duration: 800ms;
+  --slide-transition-easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius-lg, 22px);
+  border: 1.5px solid rgba(204, 163, 98, 0.4);
+  background: var(--emerald, #09231B);
+  color: #FAF7F2;
+  padding: clamp(46px, 5.5vw, 72px) clamp(16px, 3.5vw, 44px);
+  box-shadow: 0 28px 65px rgba(5, 22, 17, 0.28);
+}
+
+.voyage-slider {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(12px, 2vw, 24px);
+  min-height: calc(var(--slide-width) * 0.84);
+}
+
+.voyage-slider .slider--btn {
+  position: relative;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(204, 163, 98, 0.65);
+  background: rgba(9, 35, 27, 0.78);
+  backdrop-filter: blur(8px);
+  color: #FAF7F2;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  opacity: 0.92;
+  transition: all 250ms ease;
+  cursor: pointer;
+}
+
+.voyage-slider .slider--btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  transition: transform 250ms ease;
+}
+
+.voyage-slider .slider--btn:hover,
+.voyage-slider .slider--btn:focus-visible {
+  opacity: 1;
+  background: var(--rose, #D9725B) !important;
+  border-color: var(--rose, #D9725B) !important;
+  color: #FFFFFF !important;
+  transform: scale(1.06) !important;
+  box-shadow: 0 0 20px var(--rose-glow);
+}
+
+.voyage-slider .slides__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding-block: 24px;
+}
+
+.voyage-slider .slides__wrapper > * {
+  grid-area: 1 / -1;
+}
+
+.voyage-slider .slides,
+.voyage-slider .slides--infos {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.voyage-slider .slides > *,
+.voyage-slider .slides--infos > * {
+  grid-area: 1 / -1;
+}
+
+.voyage-slider .slide {
+  --slide-tx: 0px;
+  --slide-ty: 0px;
+  --slide-tz: 0px;
+  --slide-rotY: 0deg;
+  --slide-scale: 1;
+
+  position: relative;
+  width: var(--slide-width);
+  aspect-ratio: var(--slide-aspect);
+  user-select: none;
+  perspective: 950px;
+  transform: perspective(1100px)
+    translate3d(var(--slide-tx), var(--slide-ty), var(--slide-tz))
+    rotateY(var(--slide-rotY))
+    scale(var(--slide-scale));
+  transition: transform var(--slide-transition-duration) var(--slide-transition-easing),
+    opacity var(--slide-transition-duration) var(--slide-transition-easing);
+  will-change: transform;
+}
+
+.voyage-slider .slide[data-current] {
+  --slide-scale: 1.08;
+  --slide-tx: 0px;
+  --slide-rotY: 0deg;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.voyage-slider .slide[data-next] {
+  --slide-tx: calc(var(--slide-width) * var(--wing-offset));
+  --slide-rotY: -34deg;
+  --slide-scale: var(--wing-scale);
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.voyage-slider .slide[data-previous] {
+  --slide-tx: calc(var(--slide-width) * var(--wing-offset) * -1);
+  --slide-rotY: 34deg;
+  --slide-scale: var(--wing-scale);
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+body[dir="rtl"] .voyage-slider .slide[data-next] {
+  --slide-tx: calc(var(--slide-width) * var(--wing-offset) * -1);
+  --slide-rotY: 34deg;
+}
+
+body[dir="rtl"] .voyage-slider .slide[data-previous] {
+  --slide-tx: calc(var(--slide-width) * var(--wing-offset));
+  --slide-rotY: -34deg;
+}
+
+body[dir="rtl"] .voyage-slider .slider--btn svg {
+  transform: scaleX(-1);
+}
+
+.voyage-slider .slide__inner {
+  --rotX: 0deg;
+  --rotY: 0deg;
+  --bgPosX: 0%;
+  --bgPosY: 0%;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rotX)) rotateY(var(--rotY));
+  border-radius: 18px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+}
+
+.voyage-slider .slide[data-current] .slide__inner {
+  border-color: var(--champagne, #CCA362);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(204, 163, 98, 0.35);
+}
+
+.voyage-slider .slide--image__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.voyage-slider .slide--image__wrapper::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 58%;
+  background: linear-gradient(0deg, rgba(5, 22, 17, 0.9) 0%, rgba(5, 22, 17, 0.4) 55%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--slide-transition-duration) ease;
+  pointer-events: none;
+}
+
+.voyage-slider .slide[data-current] .slide--image__wrapper::after {
+  opacity: 1;
+}
+
+.voyage-slider .slide--image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08) translate3d(var(--bgPosX, 0%), var(--bgPosY, 0%), 0);
+  transition: filter var(--slide-transition-duration) ease, transform 120ms ease-out;
+  will-change: transform;
+}
+
+.voyage-slider .slide:not([data-current]) .slide--image {
+  filter: brightness(0.52) saturate(0.84);
+}
+
+/* Blurred Emerald Backdrop */
+.voyage-stage .slide__bg {
+  position: absolute;
+  inset: -18%;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity var(--slide-transition-duration) ease,
+    transform var(--slide-transition-duration) ease;
+}
+
+.voyage-stage .slide__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(9, 35, 27, 0.88), rgba(5, 22, 17, 0.86));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.voyage-stage .slide__bg:not([data-current]) { opacity: 0; }
+.voyage-stage .slide__bg[data-previous] { transform: translateX(-8%); }
+.voyage-stage .slide__bg[data-next] { transform: translateX(8%); }
+
+/* Slide Info Typography */
+.voyage-slider .slide-info {
+  position: relative;
+  width: var(--slide-width);
+  aspect-ratio: var(--slide-aspect);
+  user-select: none;
+  perspective: 950px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.voyage-slider .slide-info__inner {
+  --rotX: 0deg;
+  --rotY: 0deg;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rotX)) rotateY(var(--rotY));
+}
+
+.voyage-slider .slide-info--text__wrapper {
+  --z-offset: 45px;
+  position: absolute;
+  inset-inline-start: -4%;
+  bottom: 8%;
+  max-width: min(380px, 92%);
+  transform: translateZ(var(--z-offset));
+  z-index: 2;
+  pointer-events: none;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.9);
+}
+
+.voyage-slider .slide-info--text {
+  font-family: var(--font-display);
+  color: #FAF7F2;
+  overflow: hidden;
+}
+
+.voyage-slider .slide-info--text span {
+  display: block;
+  transition: var(--slide-transition-duration) var(--slide-transition-easing);
+  transition-property: opacity, transform;
+}
+
+.voyage-slider .slide-info[data-current] .slide-info--text span {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.voyage-slider .slide-info[data-current] .slide-info--text[data-title] span { transition-delay: 180ms; }
+.voyage-slider .slide-info[data-current] .slide-info--text[data-subtitle] span { transition-delay: 250ms; }
+.voyage-slider .slide-info[data-current] .slide-info--text[data-description] span { transition-delay: 320ms; }
+
+.voyage-slider .slide-info:not([data-current]) .slide-info--text span {
+  opacity: 0;
+  transform: translate3d(0, 105%, 0);
+  transition-delay: 0ms;
+}
+
+.voyage-slider .slide-info--text[data-title] {
+  font-size: clamp(28px, 2.7vw, 38px);
+  line-height: 1.08;
+}
+
+.voyage-slider .slide-info--text[data-subtitle] {
+  margin-top: 6px;
+  padding-inline-start: 12px;
+  font-family: var(--font-sans);
+  font-size: clamp(12.5px, 1.1vw, 14.5px);
+  font-weight: 800;
+  color: var(--champagne-light, #EFE1C6);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.voyage-slider .slide-info--text[data-description] {
+  margin-top: 8px;
+  padding-inline-start: 12px;
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 1.05vw, 14.5px);
+  line-height: 1.48;
+  color: rgba(250, 247, 242, 0.92);
+  max-width: 330px;
+}
+
+/* Status Dots */
+.voyage-dots {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.voyage-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: rgba(250, 247, 242, 0.32);
+  transition: width 300ms ease, background-color 300ms ease;
+  cursor: pointer;
+}
+
+.voyage-dot[aria-current="true"] {
+  width: 30px;
+  background: var(--rose, #D9725B);
+}
+
+@media (max-width: 1020px) {
+  .voyage-stage {
+    --slide-width: clamp(230px, 39vw, 330px);
+    --wing-offset: 0.7;
+    --wing-scale: 0.8;
+  }
+}
+
+@media (max-width: 760px) {
+  .voyage-stage {
+    --slide-width: clamp(220px, 64vw, 310px);
+    --wing-offset: 0.56;
+    --wing-scale: 0.76;
+    padding: 36px 12px 30px;
+    border-radius: 20px;
+  }
+  .voyage-slider {
+    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    gap: 8px;
+  }
+  .voyage-slider .slider--btn { width: 38px; height: 38px; }
+  .voyage-slider .slide[data-current] { --slide-scale: 1.04; }
+  .voyage-slider .slide-info--text__wrapper {
+    inset-inline-start: 4%;
+    inset-inline-end: 4%;
+    bottom: 6%;
+  }
+  .voyage-slider .slide-info--text[data-title] { font-size: 22px; }
+}

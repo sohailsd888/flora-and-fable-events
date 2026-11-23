@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <!-- Imperial Burgundy Royal Gradient -->
+    <radialGradient id="burgundyBg" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#3B0B18" />
+      <stop offset="60%" stop-color="#20050D" />
+      <stop offset="100%" stop-color="#100206" />
+    </radialGradient>
+
+    <!-- Radiant Antique Gold Foil Gradient -->
+    <linearGradient id="goldGleam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5D6" />
+      <stop offset="25%" stop-color="#F2D184" />
+      <stop offset="50%" stop-color="#CBA258" />
+      <stop offset="75%" stop-color="#E5C170" />
+      <stop offset="100%" stop-color="#9E7328" />
+    </linearGradient>
+
+    <linearGradient id="goldLight" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#B88A34" />
+      <stop offset="50%" stop-color="#F7DF9E" />
+      <stop offset="100%" stop-color="#FFF9E8" />
+    </linearGradient>
+
+    <!-- Drop Shadow for Dimensional Luxury -->
+    <filter id="royalShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <filter id="goldGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Outer Shadow & Background -->
+  <circle cx="300" cy="300" r="286" fill="url(#burgundyBg)" filter="url(#royalShadow)" />
+
+  <!-- Outer Double Gold Filigree Rims -->
+  <circle cx="300" cy="300" r="280" fill="none" stroke="url(#goldGleam)" stroke-width="4" />
+  <circle cx="300" cy="300" r="270" fill="none" stroke="url(#goldLight)" stroke-width="1.5" stroke-dasharray="3, 4" opacity="0.8" />
+  <circle cx="300" cy="300" r="260" fill="none" stroke="url(#goldGleam)" stroke-width="2" />
+
+  <!-- Beaded Pearl Perimeter Ring -->
+  <g fill="url(#goldGleam)" opacity="0.85">
+    <!-- 48 Decorative Pearl Beads Around the Border -->
+    <circle cx="300" cy="50" r="3.5" /><circle cx="332" cy="52" r="3.5" /><circle cx="365" cy="58" r="3.5" />
+    <circle cx="396" cy="68" r="3.5" /><circle cx="426" cy="83" r="3.5" /><circle cx="453" cy="101" r="3.5" />
+    <circle cx="477" cy="123" r="3.5" /><circle cx="497" cy="148" r="3.5" /><circle cx="513" cy="176" r="3.5" />
+    <circle cx="525" cy="206" r="3.5" /><circle cx="531" cy="237" r="3.5" /><circle cx="533" cy="269" r="3.5" />
+    <circle cx="533" cy="300" r="4.5" /><circle cx="533" cy="331" r="3.5" /><circle cx="531" cy="363" r="3.5" />
+    <circle cx="525" cy="394" r="3.5" /><circle cx="513" cy="424" r="3.5" /><circle cx="497" cy="452" r="3.5" />
+    <circle cx="477" cy="477" r="3.5" /><circle cx="453" cy="499" r="3.5" /><circle cx="426" cy="517" r="3.5" />
+    <circle cx="396" cy="532" r="3.5" /><circle cx="365" cy="542" r="3.5" /><circle cx="332" cy="548" r="3.5" />
+    <circle cx="300" cy="550" r="4.5" /><circle cx="268" cy="548" r="3.5" /><circle cx="235" cy="542" r="3.5" />
+    <circle cx="204" cy="532" r="3.5" /><circle cx="174" cy="517" r="3.5" /><circle cx="147" cy="499" r="3.5" />
+    <circle cx="123" cy="477" r="3.5" /><circle cx="103" cy="452" r="3.5" /><circle cx="87" cy="424" r="3.5" />
+    <circle cx="75" cy="394" r="3.5" /><circle cx="69" cy="363" r="3.5" /><circle cx="67" cy="331" r="3.5" />
+    <circle cx="67" cy="300" r="4.5" /><circle cx="67" cy="269" r="3.5" /><circle cx="69" cy="237" r="3.5" />
+    <circle cx="75" cy="206" r="3.5" /><circle cx="87" cy="176" r="3.5" /><circle cx="103" cy="148" r="3.5" />
+    <circle cx="123" cy="123" r="3.5" /><circle cx="147" cy="101" r="3.5" /><circle cx="174" cy="83" r="3.5" />
+    <circle cx="204" cy="68" r="3.5" /><circle cx="235" cy="58" r="3.5" /><circle cx="268" cy="52" r="3.5" />
+  </g>
+
+  <!-- Four Cardinal Compass Stars (North, South, East, West) -->
+  <path d="M300 32 L303 44 L315 47 L303 50 L300 62 L297 50 L285 47 L297 44 Z" fill="url(#goldLight)" filter="url(#goldGlow)" />
+  <path d="M300 538 L303 550 L315 553 L303 556 L300 568 L297 556 L285 553 L297 550 Z" fill="url(#goldLight)" filter="url(#goldGlow)" />
+  <path d="M553 300 L541 303 L538 315 L535 303 L523 300 L535 297 L538 285 L541 297 Z" fill="url(#goldLight)" filter="url(#goldGlow)" />
+  <path d="M47 300 L59 303 L62 315 L65 303 L77 300 L65 297 L62 285 L59 297 Z" fill="url(#goldLight)" filter="url(#goldGlow)" />
+
+  <!-- Center Heraldic Frame: Inner Ornamental Rosette -->
+  <circle cx="300" cy="300" r="236" fill="none" stroke="url(#goldGleam)" stroke-width="1.5" stroke-dasharray="10, 6" opacity="0.6" />
+
+  <!-- =============================================================== -->
+  <!-- CENTRAL PURE GRAPHICAL EMBLEM: ROYAL HAUTE BOTANICAL CROWN & BLOSSOM -->
+  <!-- (100% PURE ARTISTRY - ZERO LETTERS OR TEXT)                     -->
+  <!-- =============================================================== -->
+
+  <!-- Top Crown Star Gemstone -->
+  <g filter="url(#goldGlow)">
+    <polygon points="300,105 307,125 327,132 307,139 300,159 293,139 273,132 293,125" fill="url(#goldLight)" />
+    <circle cx="300" cy="132" r="4.5" fill="#FFFFFF" />
+  </g>
+
+  <!-- Imperial Coronet / Crown Architecture -->
+  <g fill="url(#goldGleam)" filter="url(#royalShadow)">
+    <!-- Central Arch & Finial -->
+    <path d="M300 150 C290 170 282 195 285 220 L315 220 C318 195 310 170 300 150 Z" opacity="0.9" />
+    
+    <!-- Left Arches of Crown -->
+    <path d="M285 168 C250 172 225 195 210 230 C235 236 260 234 285 222 Z" />
+    <path d="M245 195 C215 210 195 235 185 260 C210 263 235 254 255 238 Z" opacity="0.85" />
+
+    <!-- Right Arches of Crown -->
+    <path d="M315 168 C350 172 375 195 390 230 C365 236 340 234 315 222 Z" />
+    <path d="M355 195 C385 210 405 235 415 260 C390 263 365 254 345 238 Z" opacity="0.85" />
+
+    <!-- Crown Diadem Base Band with Embedded Jewels -->
+    <path d="M185 260 Q300 278 415 260 L418 274 Q300 292 182 274 Z" fill="url(#goldLight)" />
+  </g>
+
+  <!-- Diadem Jewels (Rubies & Diamonds) -->
+  <g>
+    <circle cx="300" cy="276" r="5.5" fill="#FFFFFF" filter="url(#goldGlow)" />
+    <circle cx="260" cy="273" r="4.5" fill="#E84057" />
+    <circle cx="340" cy="273" r="4.5" fill="#E84057" />
+    <circle cx="225" cy="269" r="4" fill="#FFFFFF" />
+    <circle cx="375" cy="269" r="4" fill="#FFFFFF" />
+  </g>
+
+  <!-- =============================================================== -->
+  <!-- CENTRAL FLORA: BLOOMING SACRED ROSE / LOTUS BLOSSOM             -->
+  <!-- =============================================================== -->
+  <g filter="url(#royalShadow)">
+    <!-- Base Golden Petals (Outer Fan) -->
+    <path d="M300 375 C250 360 205 320 185 285 C220 315 265 340 300 350 C335 340 380 315 415 285 C395 320 350 360 300 375 Z" fill="url(#goldGleam)" />
+
+    <!-- Mid Tier Sculpted Petals -->
+    <path d="M300 365 C265 350 230 320 215 290 C245 315 275 330 300 338 C325 330 355 315 385 290 C370 320 335 350 300 365 Z" fill="url(#goldLight)" />
+
+    <!-- Inner Blossom Heart (Regal Rose / Lotus Core) -->
+    <path d="M300 350 C280 340 260 320 250 298 C270 312 288 320 300 322 C312 320 330 312 350 298 C340 320 320 340 300 350 Z" fill="url(#goldGleam)" />
+    
+    <!-- Central Bud & Flame of Celebration -->
+    <path d="M300 290 C290 305 292 318 300 324 C308 318 310 305 300 290 Z" fill="#FFFFFF" filter="url(#goldGlow)" />
+  </g>
+
+  <!-- =============================================================== -->
+  <!-- LAUREL & ACANTHUS ROYAL WREATH (SWEEPING SYMMETRICAL BOTANICALS) -->
+  <!-- =============================================================== -->
+  <g fill="url(#goldGleam)" filter="url(#royalShadow)">
+    <!-- Left Laurel Wreath -->
+    <path d="M170 300 C155 340 155 390 185 435 C175 415 172 385 180 355 Z" />
+    <path d="M150 340 C135 365 130 395 145 425 C148 400 158 378 172 360 Z" />
+    <path d="M175 390 C165 420 170 450 195 475 C190 450 192 425 205 405 Z" />
+    <path d="M205 440 C200 465 210 490 235 505 C228 485 232 462 245 448 Z" />
+    <path d="M245 475 C248 495 265 515 290 522 C278 505 280 488 285 475 Z" />
+
+    <!-- Right Laurel Wreath -->
+    <path d="M430 300 C445 340 445 390 415 435 C425 415 428 385 420 355 Z" />
+    <path d="M450 340 C465 365 470 395 455 425 C452 400 442 378 428 360 Z" />
+    <path d="M425 390 C435 420 430 450 405 475 C410 450 408 425 395 405 Z" />
+    <path d="M395 440 C400 465 390 490 365 505 C372 485 368 462 355 448 Z" />
+    <path d="M355 475 C352 495 335 515 310 522 C322 505 320 488 315 475 Z" />
+
+    <!-- Bottom Center Tied Acanthus Knot -->
+    <path d="M300 510 C290 520 280 532 285 540 C295 538 300 528 300 520 C300 528 305 538 315 540 C320 532 310 520 300 510 Z" />
+    <circle cx="300" cy="515" r="4.5" fill="url(#goldLight)" />
+  </g>
+
+  <!-- Radiant Ambient Starlight Accents -->
+  <g fill="url(#goldLight)" opacity="0.85">
+    <circle cx="210" cy="180" r="2.5" />
+    <circle cx="390" cy="180" r="2.5" />
+    <circle cx="165" cy="245" r="3" />
+    <circle cx="435" cy="245" r="3" />
+    <circle cx="240" cy="380" r="2.5" />
+    <circle cx="360" cy="380" r="2.5" />
+    <circle cx="300" cy="460" r="3.5" filter="url(#goldGlow)" />
+  </g>
+</svg>

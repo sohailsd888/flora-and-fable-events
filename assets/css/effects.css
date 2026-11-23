@@ -1,0 +1,296 @@
+/* ==========================================================================
+   CELESTIA — Advanced Animations, Luxury Micro-Interactions & Fit Fixes
+   (Preserves all existing Hero & CTA motions untouched)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Perfect Image Framing & True Zero-Crop Masonry Rules
+   -------------------------------------------------------------------------- */
+
+/* Split cards keep heads & focal details cleanly visible */
+.split-card > img {
+  object-fit: cover !important;
+  object-position: center 15% !important;
+}
+
+/* True Natural Pinterest Masonry — ZERO unwanted cropping on Gallery images */
+.moodboard-item img,
+.moodboard-item:nth-child(3n+1) img,
+.moodboard-item:nth-child(3n+2) img {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+/* Portrait-safe framing across all editorial cards & tiles */
+.tile-photo img,
+.feature-card .visual img,
+.story-grid img,
+.hero-services-dual-visual img,
+.hero-packages-trio img,
+.cta-packages-collage img,
+.cta-gallery-frames img {
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+/* --------------------------------------------------------------------------
+   2. Custom Luxury Cursor Aura (Desktop Fine Pointers Only)
+   -------------------------------------------------------------------------- */
+
+.cursor-aura,
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  border-radius: 50%;
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.28s cubic-bezier(0.16, 1, 0.3, 1), height 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.cursor-aura {
+  width: 34px;
+  height: 34px;
+  margin-left: -17px;
+  margin-top: -17px;
+  border: 1.5px solid rgba(204, 163, 98, 0.72);
+  background: rgba(217, 114, 91, 0.06);
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  background: var(--rose);
+}
+
+.cursor-aura.visible,
+.cursor-dot.visible {
+  opacity: 1;
+}
+
+.cursor-aura.active-hover {
+  width: 54px;
+  height: 54px;
+  margin-left: -27px;
+  margin-top: -27px;
+  border-color: var(--rose);
+  background: rgba(217, 114, 91, 0.14);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-aura, .cursor-dot { display: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   3. Masked Split-Word Heading Reveal Animation
+   -------------------------------------------------------------------------- */
+
+.mask-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.06em;
+}
+
+.mask-word-inner {
+  display: inline-block;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.mask-revealed .mask-word-inner {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Architectural Curtain Wipe Reveal on Editorial Images
+   -------------------------------------------------------------------------- */
+
+.img-curtain {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-curtain::after {
+  display: none !important;
+}
+
+.img-curtain img {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.img-curtain.curtain-open img {
+  transform: scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   5. Rotating Luminous Metallic Border Glow (Featured Cards & Calculator)
+   -------------------------------------------------------------------------- */
+
+@property --orbit-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.calc-box,
+.contact-form-wrap {
+  position: relative;
+  border: 2px solid transparent !important;
+  background:
+    linear-gradient(var(--paper), var(--paper)) padding-box,
+    conic-gradient(from var(--orbit-angle), rgba(204,163,98,0.22), var(--champagne), var(--rose), rgba(204,163,98,0.22)) border-box !important;
+  animation: borderOrbit 7s linear infinite;
+}
+
+@keyframes borderOrbit {
+  to { --orbit-angle: 360deg; }
+}
+
+/* --------------------------------------------------------------------------
+   6. Champagne Ripple Click Wave on Buttons & Filter Pills
+   -------------------------------------------------------------------------- */
+
+.ripple-host {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-wave {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  animation: rippleExpand 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleExpand {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Floating Circular SVG Progress Back-to-Top Button
+   -------------------------------------------------------------------------- */
+
+.back-to-top-ring {
+  position: fixed;
+  bottom: 28px;
+  inset-inline-end: 28px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  place-items: center;
+  z-index: 900;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px) scale(0.9);
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.back-to-top-ring.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top-ring:hover {
+  background: var(--emerald);
+  color: var(--champagne-light);
+  transform: translateY(-3px) scale(1.06);
+}
+
+.back-to-top-ring svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.back-to-top-ring circle.ring-track {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 2.5;
+}
+
+.back-to-top-ring circle.ring-fill {
+  fill: none;
+  stroke: var(--rose);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-dasharray: 138.23;
+  stroke-dashoffset: 138.23;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.back-to-top-ring span {
+  font-size: 16px;
+  font-weight: 800;
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   8. Smooth FAQ Accordion Slide Glow & Tile Accent Bar
+   -------------------------------------------------------------------------- */
+
+.tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--champagne), var(--rose));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tile:hover::before {
+  transform: scaleX(1);
+}
+
+.faq-list summary::after {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-list details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.faq-list details[open] .faq-answer {
+  animation: faqSlideIn 0.35s ease;
+}
+
+@keyframes faqSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mask-word-inner { transform: none !important; opacity: 1 !important; transition: none !important; }
+  .img-curtain::after { display: none !important; }
+  .img-curtain img { transform: none !important; }
+  .calc-box, .contact-form-wrap { animation: none !important; }
+  .cursor-aura, .cursor-dot { display: none !important; }
+}

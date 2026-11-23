@@ -1,0 +1,584 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Couples Login | Flora &amp; Fable Events â€” Luxury Weddings &amp; Celebrations</title>
+  <meta content="Sign in to your private Flora &amp; Fable couples suite to review wedding checklists, Hindu Vivah or Muslim Nikah rituals, vendor contracts, and planning timelines." name="description" />
+  
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
+  <link href="assets/css/style.css?v=3.0" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      max-height: 100vh;
+      overflow: hidden !important;
+      background: var(--bg);
+    }
+    /* Split-Screen Layout: Fixed Non-Scrolling Screen */
+    .auth-split-wrapper {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      height: 100vh;
+      max-height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    @media (max-width: 960px) {
+      .auth-split-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .auth-left-showcase {
+        display: none;
+      }
+    }
+
+    /* LEFT COLUMN: Luxury Editorial Showcase */
+    .auth-left-showcase {
+      height: 100vh;
+      max-height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(160deg, #1C050B 0%, #2A0913 50%, #120307 100%);
+      color: #FAF7F2;
+      padding: clamp(20px, 3vh, 36px) clamp(26px, 3.5vw, 44px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-inline-end: 1.5px solid var(--line-accent);
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .showcase-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .showcase-header .brand-logo-wrap {
+      width: 48px;
+      height: 48px;
+      border: 2px solid var(--champagne);
+      border-radius: 50%;
+      overflow: hidden;
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+    }
+    .showcase-header .brand-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .showcase-header strong {
+      font-size: 18px;
+      color: #FAF7F2;
+      letter-spacing: 0.1em;
+      display: block;
+      font-family: var(--font-serif);
+    }
+    .showcase-header small {
+      font-size: 10px;
+      color: var(--champagne);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .showcase-main-content {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 1.8vh, 16px);
+      margin: auto 0;
+    }
+
+    .showcase-visual-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1.5px solid rgba(203, 162, 88, 0.45);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+      background: #000;
+    }
+    .showcase-visual-frame img {
+      width: 100%;
+      height: clamp(160px, 24vh, 210px);
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .showcase-visual-frame:hover img {
+      transform: scale(1.03);
+    }
+    .showcase-frame-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 16px;
+      background: linear-gradient(180deg, transparent 0%, rgba(14, 3, 7, 0.94) 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #FAF7F2;
+    }
+    .showcase-frame-caption strong {
+      color: var(--champagne-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .showcase-typography h2 {
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.25;
+      color: #FAF7F2;
+      margin: 0 0 6px;
+    }
+    .showcase-typography p {
+      color: #D8C4BC;
+      font-size: clamp(12px, 1vw, 13.5px);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .showcase-footer {
+      border-top: 1px solid rgba(203, 162, 88, 0.25);
+      padding-top: 10px;
+      font-size: 11.5px;
+      color: #B8A49C;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .showcase-footer strong {
+      color: var(--champagne);
+    }
+
+    /* RIGHT COLUMN: Authentication Form */
+    .auth-right-container {
+      height: 100vh;
+      max-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(14px, 2.5vh, 28px) clamp(20px, 3.5vw, 44px);
+      position: relative;
+      box-sizing: border-box;
+      background: var(--bg);
+    }
+    .login-tools {
+      position: absolute;
+      top: 16px;
+      inset-inline-end: 22px;
+      display: flex;
+      gap: 10px;
+      z-index: 20;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 410px;
+      background: var(--paper);
+      border: 1.5px solid var(--line-accent);
+      border-radius: var(--radius-lg);
+      padding: clamp(18px, 2.5vh, 26px) clamp(20px, 2.5vw, 30px);
+      box-shadow: 0 10px 30px rgba(123, 17, 35, 0.08), 0 2px 8px rgba(0,0,0,0.04);
+      box-sizing: border-box;
+      margin: auto;
+    }
+
+    /* Social OAuth Buttons */
+    .oauth-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .oauth-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: var(--font-main);
+    }
+    .oauth-btn:hover {
+      background: var(--bg-subtle);
+      border-color: var(--rose);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .oauth-btn svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 12px 0;
+      color: var(--muted);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--line);
+    }
+    .auth-divider span {
+      padding: 0 12px;
+    }
+
+    /* Quick Suite Selector */
+    .suite-switcher {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 4px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--line);
+    }
+    .suite-btn {
+      flex: 1;
+      padding: 6px 10px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-pill);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .suite-btn.active {
+      background: var(--paper);
+      color: var(--rose);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line-accent);
+    }
+
+    .auth-form label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .input-wrap {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      padding: 0 12px;
+      margin-bottom: 11px;
+      transition: border-color 0.25s ease;
+    }
+    .input-wrap:focus-within {
+      border-color: var(--rose);
+      box-shadow: 0 0 10px var(--rose-glow);
+    }
+    .input-wrap input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 9px 6px;
+      font-size: 13px;
+      color: var(--ink);
+      outline: none;
+      font-family: var(--font-main);
+    }
+    .password-toggle {
+      color: var(--muted);
+      font-size: 12px;
+      padding: 4px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-weight: 700;
+    }
+    .password-toggle:hover {
+      color: var(--rose);
+    }
+    .auth-submit {
+      width: 100%;
+      margin-top: 6px;
+      padding: 11px 18px;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    /* Dark Mode Auth Card & Controls */
+    body.dark .auth-card {
+      background: #1B060C;
+      border-color: rgba(203, 162, 88, 0.35);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+    body.dark .auth-card h1 {
+      color: #FAF7F2;
+    }
+    body.dark .auth-card label {
+      color: #FAF7F2;
+    }
+    body.dark .oauth-btn {
+      background: #140408;
+      border-color: rgba(203, 162, 88, 0.28);
+      color: #FAF7F2;
+    }
+    body.dark .oauth-btn:hover {
+      background: #230810;
+      border-color: var(--champagne);
+    }
+    body.dark .suite-switcher {
+      background: #140408;
+      border-color: rgba(203, 162, 88, 0.25);
+    }
+    body.dark .suite-btn {
+      color: #C8B2B8;
+    }
+    body.dark .suite-btn.active {
+      background: #230810;
+      color: var(--champagne);
+      border-color: var(--champagne);
+    }
+    body.dark .input-wrap {
+      background: #140408;
+      border-color: rgba(203, 162, 88, 0.3);
+    }
+    body.dark .input-wrap input {
+      color: #FAF7F2;
+    }
+  </style>
+</head>
+<body id="top">
+
+  <div class="auth-split-wrapper">
+    
+    <!-- LEFT SIDE: SCROLLABLE LUXURY SHOWCASE -->
+    <aside class="auth-left-showcase" aria-label="Royal Celebrations Showcase">
+      <div class="showcase-header">
+        <a class="brand-logo-wrap" href="index.html">
+          <img src="assets/images/logo.jpg" alt="Flora &amp; Fable Events Logo" />
+        </a>
+        <div>
+          <strong>FLORA &amp; FABLE</strong>
+          <small>LUXURY WEDDINGS &amp; CELEBRATIONS</small>
+        </div>
+      </div>
+
+      <div class="showcase-main-content">
+        <div class="showcase-typography">
+          <span class="eyebrow" style="color:var(--champagne); font-size:11px; letter-spacing:0.2em; justify-content:flex-start;">PRIVATE CLIENT ATELIER</span>
+          <h2>Where Sacred Traditions Meet Haute Couture.</h2>
+          <p>Access real-time ritual checklists, palatial floral mockups, signed artisan contracts, and transparent investment ledgers.</p>
+        </div>
+
+        <div class="showcase-visual-frame">
+          <img src="assets/images/unique/login-showcase.jpg" alt="Palatial cliffside luxury celebration sanctuary" />
+          <div class="showcase-frame-caption">
+            <strong>Palatial Sanctuary &middot; Amalfi Cliffside</strong>
+            <span>Curated Suite</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-footer">
+        <span>âœ¦ <strong>Discreet Confidentiality Protocol</strong></span>
+        <span>24/7 Atelier Concierge âœ¦</span>
+      </div>
+    </aside>
+
+    <!-- RIGHT SIDE: AUTHENTICATION FORM -->
+    <main class="auth-right-container">
+      <div class="login-tools">
+        <button aria-label="Toggle theme" class="iconbtn" id="themeToggle" title="Toggle Theme">â—</button>
+        <button aria-label="Toggle RTL" class="iconbtn" id="rtlToggle" title="Toggle RTL">RTL</button>
+      </div>
+
+      <article class="auth-card">
+        <div style="text-align:center; margin-bottom:16px;">
+          <span class="eyebrow" style="color:var(--champagne); margin-bottom:4px;">COUPLES SUITE</span>
+          <h1 style="font-size:24px; margin:4px 0 2px;">Private Sign In</h1>
+          <p style="font-size:13px; color:var(--muted); margin:0;">Enter your private suite to manage your celebration.</p>
+        </div>
+
+        <!-- Continue with Google & Apple (NO LOCK ICON) -->
+        <div class="oauth-group">
+          <button class="oauth-btn" id="btnGoogleLogin" type="button">
+            <svg viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+
+          <button class="oauth-btn" id="btnAppleLogin" type="button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.47c.68-.82 1.13-1.96 1.01-3.1-.98.04-2.16.65-2.85 1.47-.61.71-1.14 1.88-1 3 .01 0 .04 0 .07 0 1.06 0 2.1-.56 2.77-1.37z"/>
+            </svg>
+            <span>Continue with Apple</span>
+          </button>
+        </div>
+
+        <div class="auth-divider">
+          <span>or continue with email</span>
+        </div>
+
+        <!-- Quick Demo Switcher -->
+        <div class="suite-switcher" role="tablist" aria-label="Demo Celebration Suites">
+          <button class="suite-btn active" id="btnHindu" type="button" role="tab" aria-selected="true">
+            <span>ðŸ•‰ï¸</span> <span>Aarav &amp; Ananya</span>
+          </button>
+          <button class="suite-btn" id="btnMuslim" type="button" role="tab" aria-selected="false">
+            <span>â˜ªï¸</span> <span>Zayd &amp; Fatima</span>
+          </button>
+        </div>
+
+        <!-- Email & Passcode Form (LOCK ICON REMOVED) -->
+        <form class="auth-form" id="loginForm">
+          <label for="email">Couple's Registered Email</label>
+          <div class="input-wrap">
+            <span style="color:var(--rose); font-size:15px;">&#9993;</span>
+            <input autocomplete="email" id="email" placeholder="aarav.ananya@floraandfable.com" required="" type="email" value="aarav.ananya@floraandfable.com" />
+          </div>
+
+          <label for="password">Private Access Passcode</label>
+          <div class="input-wrap">
+            <input autocomplete="current-password" id="password" minlength="4" placeholder="Enter private passcode" required="" type="password" value="vivah2027" />
+            <button aria-label="Toggle password visibility" class="password-toggle" id="showPassword" type="button">SHOW</button>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:18px;">
+            <label style="display:flex; align-items:center; gap:6px; font-weight:normal; cursor:pointer; text-transform:none; letter-spacing:normal;">
+              <input type="checkbox" checked style="accent-color:var(--rose);" /> Remember this device
+            </label>
+            <a href="#" style="color:var(--rose); font-weight:700;" onclick="toast('Passcode reminder sent to registered concierge email.'); return false;">
+              Forgot passcode?
+            </a>
+          </div>
+
+          <button class="btn btn-primary auth-submit" type="submit" style="border-radius:var(--radius-md);">
+            Access Couples Suite &rarr;
+          </button>
+        </form>
+
+        <p style="text-align:center; font-size:13px; margin-top:18px; margin-bottom:6px;">
+          New couple? <a href="signup.html" style="color:var(--rose); font-weight:700;">Create Couples Account &rarr;</a>
+        </p>
+        <p style="text-align:center; margin:0;">
+          <a href="index.html" style="font-size:12.5px; color:var(--muted);">&larr; Return to Flora &amp; Fable Events</a>
+        </p>
+      </article>
+    </main>
+
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="assets/js/app.js?v=3.0"></script>
+  <script>
+    const btnHindu = document.getElementById('btnHindu');
+    const btnMuslim = document.getElementById('btnMuslim');
+    const emailInput = document.getElementById('email');
+    const pwdInput = document.getElementById('password');
+
+    btnHindu?.addEventListener('click', () => {
+      btnHindu.classList.add('active');
+      btnMuslim.classList.remove('active');
+      emailInput.value = 'aarav.ananya@floraandfable.com';
+      pwdInput.value = 'vivah2027';
+      try {
+        localStorage.setItem('ff-couple-names', 'Aarav & Ananya');
+        localStorage.setItem('ff-tradition', 'Hindu Vivah');
+        localStorage.setItem('ff-venue', 'Udaipur City Palace');
+      } catch {}
+    });
+
+    btnMuslim?.addEventListener('click', () => {
+      btnMuslim.classList.add('active');
+      btnHindu.classList.remove('active');
+      emailInput.value = 'zayd.fatima@floraandfable.com';
+      pwdInput.value = 'nikah2027';
+      try {
+        localStorage.setItem('ff-couple-names', 'Zayd & Fatima');
+        localStorage.setItem('ff-tradition', 'Muslim Nikah & Walima');
+        localStorage.setItem('ff-venue', 'Taj Falaknuma Palace, Hyderabad');
+      } catch {}
+    });
+
+    // Password visibility toggle
+    const pwdBtn = document.getElementById('showPassword');
+    pwdBtn?.addEventListener('click', () => {
+      const isPwd = pwdInput.type === 'password';
+      pwdInput.type = isPwd ? 'text' : 'password';
+      pwdBtn.textContent = isPwd ? 'HIDE' : 'SHOW';
+    });
+
+    // Google & Apple OAuth Handlers
+    document.getElementById('btnGoogleLogin')?.addEventListener('click', () => {
+      toast('Authenticating with Google Accounts...');
+      setTimeout(() => {
+        try {
+          localStorage.setItem('celestia-signed-in', 'yes');
+          localStorage.setItem('ff-couple-names', 'Aarav & Ananya');
+          localStorage.setItem('ff-tradition', 'Hindu Vivah');
+          localStorage.setItem('ff-venue', 'Udaipur City Palace');
+        } catch {}
+        window.location.href = 'dashboard.html';
+      }, 900);
+    });
+
+    document.getElementById('btnAppleLogin')?.addEventListener('click', () => {
+      toast('Authenticating with Apple ID...');
+      setTimeout(() => {
+        try {
+          localStorage.setItem('celestia-signed-in', 'yes');
+          localStorage.setItem('ff-couple-names', 'Zayd & Fatima');
+          localStorage.setItem('ff-tradition', 'Muslim Nikah & Walima');
+          localStorage.setItem('ff-venue', 'Taj Falaknuma Palace, Hyderabad');
+        } catch {}
+        window.location.href = 'dashboard.html';
+      }, 900);
+    });
+
+    // Form submit
+    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      try {
+        localStorage.setItem('celestia-signed-in', 'yes');
+        if (!localStorage.getItem('ff-couple-names')) {
+          localStorage.setItem('ff-couple-names', btnMuslim.classList.contains('active') ? 'Zayd & Fatima' : 'Aarav & Ananya');
+        }
+      } catch {}
+      toast('Identity verified. Entering your Couples Suite...');
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 800);
+    });
+  </script>
+</body>
+</html>

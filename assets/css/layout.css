@@ -1,0 +1,318 @@
+/* ==========================================================================
+   AURA & VOW — Layout Components & Hero Styling
+   High contrast, crystal clear readability over dark hero background
+   ========================================================================== */
+
+/* Immersive Hero Section */
+.hero.immersive-hero {
+  position: relative;
+  min-height: 700px;
+  height: calc(100svh - var(--header-height));
+  max-height: 920px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px var(--container-pad);
+  overflow: hidden;
+  color: #FFF9F7;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.04);
+  animation: heroKenBurns 24s ease-in-out infinite alternate;
+}
+
+@keyframes heroKenBurns {
+  0% { transform: scale(1.04) translateY(0); }
+  100% { transform: scale(1.12) translateY(-14px); }
+}
+
+.hero-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 45%, rgba(39, 21, 54, 0.45) 0%, rgba(39, 21, 54, 0.85) 75%, rgba(39, 21, 54, 0.96) 100%);
+  z-index: 1;
+}
+
+.hero-background::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 140px;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  z-index: 2;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 5;
+  max-width: 920px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(39, 21, 54, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 116, 96, 0.48);
+  color: #FFEAE6;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero-badge .sparkle {
+  color: var(--coral);
+  font-size: 13px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(40px, 5.8vw, 84px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.75);
+}
+
+.hero-copy h1 em {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-weight: 400;
+  color: #FF8D7B;
+  text-shadow: 0 2px 18px rgba(255, 116, 96, 0.45);
+}
+
+.hero-copy p {
+  font-size: clamp(16px, 1.25vw, 19.5px);
+  color: rgba(255, 249, 247, 0.94);
+  max-width: 660px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 46px;
+}
+
+/* Metric / Trust Counters */
+.hero-metrics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 116, 96, 0.35);
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metric-number {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 2.8vw, 38px);
+  font-weight: 800;
+  color: var(--coral);
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 249, 247, 0.88);
+  margin-top: 4px;
+}
+
+/* Press Ticker */
+.press-strip {
+  padding: 30px var(--container-pad);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-elevated);
+}
+
+.press-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.press-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+.press-logos {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  flex-wrap: wrap;
+}
+
+.press-logo-text {
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.75;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.press-logo-text:hover {
+  opacity: 1;
+  color: var(--coral);
+}
+
+/* Story Editorial Section */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(36px, 5vw, 84px);
+  align-items: center;
+}
+
+.story-visual {
+  position: relative;
+}
+
+.story-img-main {
+  width: 88%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+}
+
+.story-img-floating {
+  position: absolute;
+  bottom: -24px;
+  inset-inline-end: 0;
+  width: 48%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 4px solid var(--paper);
+  box-shadow: var(--shadow-lg), 0 8px 24px var(--coral-glow);
+}
+
+.story-copy .eyebrow {
+  justify-content: flex-start;
+}
+
+.story-copy .eyebrow::after {
+  display: none;
+}
+
+.story-copy h2 {
+  font-size: clamp(32px, 3.6vw, 50px);
+  line-height: 1.12;
+  margin-bottom: 18px;
+}
+
+.story-copy p {
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.story-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-block: 26px;
+}
+
+.highlight-box {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+}
+
+.highlight-box strong {
+  display: block;
+  font-size: 14.5px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.highlight-box span {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .hero.immersive-hero {
+    min-height: 640px;
+    height: auto;
+    padding-block: 70px 50px;
+  }
+  
+  .hero-metrics {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .story-visual {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .press-inner {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .press-logos {
+    justify-content: center;
+  }
+}

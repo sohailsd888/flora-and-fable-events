@@ -1,0 +1,717 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Couples Suite | Flora & Fable Events â€” Luxury Wedding Atelier</title>
+  <meta content="Client dashboard for tracking the royal wedding checklist, reviewing Hindu Vivah and Muslim Nikah rituals, vendor decor, budget ledger, and concierge communications." name="description" />
+  
+  <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
+
+  <!-- Core & Dashboard Styles -->
+  <link href="assets/css/style.css?v=3.0" rel="stylesheet" />
+  <link href="assets/css/dashboard.css?v=3.0" rel="stylesheet" />
+  
+  <style>
+    /* Fixed Non-Scrolling Left Sidebar */
+    .portal-sidebar {
+      position: fixed !important;
+      top: 0 !important;
+      inset-inline-start: 0 !important;
+      width: 275px !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      overflow: hidden !important; /* No scrolling as requested */
+      background: #FAF7F2;
+      border-inline-end: 1.5px solid var(--line-accent);
+      padding: 16px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+      z-index: 100;
+    }
+    .portal-main {
+      margin-inline-start: 275px !important;
+    }
+    @media (max-width: 1020px) {
+      .portal-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.35s ease;
+      }
+      .portal-sidebar.open {
+        transform: translateX(0);
+      }
+      .portal-main {
+        margin-inline-start: 0 !important;
+      }
+    }
+    
+    .sidebar-tradition-card {
+      background: #FFFFFF;
+      border: 1px solid var(--line-accent);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .sidebar-tradition-card strong {
+      display: block;
+      font-size: 13px;
+      color: var(--rose);
+      margin-bottom: 2px;
+    }
+    .sidebar-tradition-card small {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+      display: block;
+    }
+    .sidebar-founder-chip {
+      background: linear-gradient(135deg, #2A0B14 0%, #15050A 100%);
+      color: #FAF7F2;
+      border: 1px solid var(--champagne);
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+    .sidebar-founder-chip img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--champagne);
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="dashboard-page" id="top">
+
+  <div class="portal-shell">
+    <!-- LEFT SIDEBAR: Fully Scrollable Navigation & Celebration Hub -->
+    <aside class="portal-sidebar" id="portalSidebar">
+      <!-- Brand Header -->
+      <a class="portal-brand" href="index.html" style="text-decoration: none; padding-bottom: 12px; border-bottom: 1px solid var(--line-accent);">
+        <div class="brand-logo-wrap" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid var(--champagne); flex-shrink: 0; background: #fff;">
+          <img src="assets/images/logo.jpg" alt="Flora &amp; Fable Events" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div class="brand-type" style="margin-left: 10px;">
+          <strong style="font-family: var(--font-serif); font-size: 16px; letter-spacing: 0.08em; color: var(--rose); display: block;">FLORA &amp; FABLE</strong>
+          <small style="font-size: 9px; letter-spacing: 0.18em; color: var(--champagne); font-weight: 700; text-transform: uppercase;">Couples Suite</small>
+        </div>
+      </a>
+
+      <!-- Quick Tradition Switcher -->
+      <div class="sidebar-tradition-card">
+        <strong id="activeTraditionLabel">ðŸ•‰ï¸ Hindu Vivah Suite</strong>
+        <small id="activeCoupleLabel">Aarav &amp; Ananya &middot; Udaipur Palace</small>
+        <div style="display: flex; gap: 6px; margin-top: 8px;">
+          <button type="button" class="btn" id="btnSwitchHindu" style="flex: 1; padding: 4px 6px; font-size: 10.5px; background: var(--bg-subtle); border: 1px solid var(--line); border-radius: 4px; cursor: pointer;">
+            ðŸ•‰ï¸ Hindu
+          </button>
+          <button type="button" class="btn" id="btnSwitchMuslim" style="flex: 1; padding: 4px 6px; font-size: 10.5px; background: var(--bg-subtle); border: 1px solid var(--line); border-radius: 4px; cursor: pointer;">
+            â˜ªï¸ Muslim
+          </button>
+        </div>
+      </div>
+
+      <!-- Core Wedding Navigation -->
+      <div class="portal-menu-label" style="font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--muted); margin-top: 6px;">WEDDING PLANNING</div>
+      <nav class="portal-nav" aria-label="Portal Navigation" style="display: flex; flex-direction: column; gap: 4px;">
+        <button class="portal-link active" data-tab="overview" type="button">
+          <span class="portal-icon">&#9670;</span>
+          <span>Overview</span>
+        </button>
+        <button class="portal-link" data-tab="checklist" type="button">
+          <span class="portal-icon">&#10003;</span>
+          <span>Planning Checklist</span>
+          <span class="badge-count" id="checklistBadge">12</span>
+        </button>
+        <button class="portal-link" data-tab="vendors" type="button">
+          <span class="portal-icon">&#10022;</span>
+          <span>Vendors &amp; Artisans</span>
+        </button>
+        <button class="portal-link" data-tab="budget" type="button">
+          <span class="portal-icon">&#36;</span>
+          <span>Budget &amp; Ledger</span>
+        </button>
+      </nav>
+
+      <!-- Senior Concierge Desk (Non-repetitive, compact) -->
+      <div class="sidebar-founder-chip" style="padding: 10px 12px; margin: 4px 0;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+          <strong style="font-size: 11.5px; color: var(--champagne);">Atelier Concierge</strong>
+          <span style="font-size: 9px; background: rgba(203,162,88,0.2); color: var(--champagne); padding: 2px 6px; border-radius: 4px;">24/7 Priority</span>
+        </div>
+        <p style="font-size: 10px; color: #E8D8CF; line-height: 1.35; margin: 0 0 6px;">
+          Direct connection to your senior celebration director &amp; palace curators.
+        </p>
+        <a class="btn btn-primary" style="padding: 5px 8px; font-size: 10.5px; width: 100%; text-align: center; display: block; text-decoration: none;" href="mailto:concierge@floraandfable.com">
+          Contact Concierge &rarr;
+        </a>
+      </div>
+
+      <!-- Live Destination Status -->
+      <div class="sidebar-tradition-card" style="padding: 8px 10px; margin: 4px 0;">
+        <div style="display: flex; justify-content: space-between; font-size: 10.5px; margin-bottom: 2px;">
+          <span>Udaipur Palace:</span>
+          <strong style="color: var(--ink);">28&deg;C &middot; Clear</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 10.5px;">
+          <span>Lake Como Estate:</span>
+          <strong style="color: var(--ink);">21&deg;C &middot; Sunny</strong>
+        </div>
+      </div>
+
+      <!-- Site Navigation & Actions -->
+      <div class="portal-menu-label" style="font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--muted); margin-top: 12px;">ACTIONS</div>
+      <nav class="portal-nav" style="display: flex; flex-direction: column; gap: 4px;">
+        <button class="portal-link" id="sidebarDownloadBtn" type="button">
+          <span class="portal-icon">&#8681;</span>
+          <span>Download Statement (.txt)</span>
+        </button>
+        <a class="portal-link" href="index.html">
+          <span class="portal-icon">&larr;</span>
+          <span>Return to Main Atelier</span>
+        </a>
+        <button class="portal-link portal-link-signout" data-action="signout" type="button">
+          <span class="portal-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          </span>
+          <span>Sign Out</span>
+        </button>
+      </nav>
+
+      <!-- Scroll Indicator Hint -->
+      <div style="text-align: center; padding-top: 10px; border-top: 1px dashed var(--line); font-size: 10px; color: var(--muted);">
+        &bull; Flora &amp; Fable Luxury Atelier &bull;
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="portal-main">
+      <!-- Topbar -->
+      <header class="portal-topbar">
+        <div class="portal-breadcrumbs">
+          <button class="iconbtn portal-mobile-btn" id="mobilePortalMenu" aria-label="Toggle Navigation">&#9776;</button>
+          <span>Flora &amp; Fable</span>
+          <span>/</span>
+          <strong id="tabBreadcrumb">Overview</strong>
+        </div>
+
+        <div class="portal-top-actions">
+          <button aria-label="Toggle light or dark theme" class="iconbtn" id="themeToggle" title="Toggle light and dark mode">&#9679;</button>
+          <button aria-label="Toggle right-to-left layout" class="iconbtn" id="rtlToggle" title="Toggle RTL">RTL</button>
+
+          <div class="portal-user-dropdown" id="userDropdown">
+            <button
+              class="portal-user-chip"
+              id="userMenuToggle"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-label="Couple profile and account options"
+              type="button"
+            >
+              <img class="portal-avatar" id="topAvatarImg" src="assets/images/batch2/p04.jpg" alt="Aarav and Ananya" />
+              <div class="portal-user-meta">
+                <span id="topCoupleName">Aarav &amp; Ananya</span>
+                <small id="topCoupleVenue">Udaipur City Palace &middot; 2027</small>
+              </div>
+              <svg class="user-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+
+            <div class="portal-user-menu" id="userDropdownMenu" role="menu" aria-labelledby="userMenuToggle">
+              <div class="portal-user-menu-header">
+                <img class="portal-avatar-lg" id="menuAvatarImg" src="assets/images/batch2/p11.jpg" alt="Aarav and Ananya" />
+                <div>
+                  <strong id="menuCoupleName">Aarav &amp; Ananya</strong>
+                  <span>couples@floraandfable.com</span>
+                  <span class="portal-status-tag" id="menuStatusTag">Hindu Vivah &middot; Udaipur Palace</span>
+                </div>
+              </div>
+
+              <div class="portal-menu-section">
+                <button class="portal-menu-item" type="button" role="menuitem" data-tab="overview">
+                  <span class="menu-item-icon">&#9670;</span>
+                  <span>Wedding Overview</span>
+                </button>
+                <button class="portal-menu-item" type="button" role="menuitem" data-tab="checklist">
+                  <span class="menu-item-icon">&#10003;</span>
+                  <span>Planning Checklist</span>
+                </button>
+                <button class="portal-menu-item" type="button" role="menuitem" data-tab="vendors">
+                  <span class="menu-item-icon">&#10022;</span>
+                  <span>Vendors &amp; Artisans</span>
+                </button>
+                <button class="portal-menu-item" type="button" role="menuitem" data-tab="budget">
+                  <span class="menu-item-icon">&#36;</span>
+                  <span>Budget &amp; Ledger</span>
+                </button>
+              </div>
+
+              <div class="portal-menu-divider" role="separator"></div>
+
+              <div class="portal-menu-section">
+                <button class="portal-menu-item" type="button" role="menuitem" data-action="download-statement">
+                  <span class="menu-item-icon">&#8681;</span>
+                  <span>Download Statement (.txt)</span>
+                </button>
+                <a class="portal-menu-item" href="index.html" role="menuitem">
+                  <span class="menu-item-icon">&#8962;</span>
+                  <span>Return to Main Atelier</span>
+                </a>
+                <a class="portal-menu-item" href="login.html" role="menuitem">
+                  <span class="menu-item-icon">&#8644;</span>
+                  <span>Switch Couple Account</span>
+                </a>
+              </div>
+
+              <div class="portal-menu-divider" role="separator"></div>
+
+              <div class="portal-menu-section">
+                <button class="portal-menu-item portal-menu-signout" type="button" role="menuitem" data-action="signout">
+                  <span class="menu-item-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span>Sign Out</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Views -->
+      <main class="portal-content">
+        <!-- VIEW 1: OVERVIEW -->
+        <section class="portal-view active" id="view-overview">
+          <div class="portal-header-banner">
+            <div>
+              <span class="eyebrow" style="color: var(--champagne); margin-bottom: 6px;">COUTURE CELEBRATION IN PROGRESS</span>
+              <h1 id="welcomeHeroHeading">Welcome, Aarav &amp; Ananya.</h1>
+              <p id="welcomeHeroSub">Your celebration at Udaipur City Palace is in Phase 2: Artisan Curation &amp; Cultural Floral Design.</p>
+            </div>
+
+            <div class="wedding-countdown">
+              <div class="countdown-number">142</div>
+              <div class="countdown-label">Days to Celebration</div>
+            </div>
+          </div>
+
+          <!-- Key Metrics -->
+          <div class="dashboard-metrics-grid">
+            <div class="metric-card">
+              <span class="metric-sub">Checklist Progress</span>
+              <strong class="metric-value" id="metricChecklistVal">68%</strong>
+              <small>15 of 22 milestones finalized</small>
+            </div>
+            <div class="metric-card">
+              <span class="metric-sub">Guest Confirmations</span>
+              <strong class="metric-value">148 / 160</strong>
+              <small>92% RSVPs recorded</small>
+            </div>
+            <div class="metric-card">
+              <span class="metric-sub">Budget Committed</span>
+              <strong class="metric-value">$185,000</strong>
+              <small>$115,000 paid to date</small>
+            </div>
+            <div class="metric-card">
+              <span class="metric-sub">Next Milestone</span>
+              <strong class="metric-value" style="font-size: 20px;">Oct 12</strong>
+              <small>Menu tasting &amp; Mandap linens</small>
+            </div>
+          </div>
+
+          <!-- Cultural Showcase Card -->
+          <div style="background: var(--paper); border: 1.5px solid var(--line-accent); border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+              <div>
+                <span class="eyebrow" style="color: var(--champagne); margin: 0;">EXCLUSIVE TRADITION CELEBRATIONS</span>
+                <h3 style="font-size: 20px; margin: 4px 0 0;" id="overviewTraditionTitle">Hindu Vivah &middot; Vedic Sacred Altars</h3>
+              </div>
+              <span class="badge" style="background: rgba(203,162,88,0.15); color: var(--rose); font-weight: 700; padding: 6px 12px; border-radius: 999px; font-size: 12px;">
+                Curated by Atelier Master Director
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--line-accent);">
+                <img id="overviewTraditionImg" src="assets/images/unique/dashboard-overview.jpg" alt="Vedic Vivah Mandap" style="width: 100%; height: 210px; object-fit: cover;" />
+                <div style="padding: 12px; background: var(--bg-subtle);">
+                  <strong id="overviewTraditionCaption" style="font-size: 13px; color: var(--rose); display: block;">Udaipur Palace Vedic Mandap</strong>
+                  <small style="color: var(--muted); font-size: 11.5px;">Hand-carved marble mandap with sacred Agni altar, marigold cascading garlands &amp; brass lanterns.</small>
+                </div>
+              </div>
+              <div>
+                <h4 style="font-size: 15px; margin: 0 0 10px; color: var(--ink);">Ceremony Timeline Milestones:</h4>
+                <ul style="padding-left: 18px; margin: 0; font-size: 13px; color: var(--muted); line-height: 1.8;">
+                  <li><strong>Haldi &amp; Chooda:</strong> Saffron botanical pastels &amp; courtyard marigold decor.</li>
+                  <li><strong>Sangeet Soir&eacute;e:</strong> Crystal chandeliers, acoustic sitar &amp; royal banquet.</li>
+                  <li><strong>Baraat Grand Entrance:</strong> Royal procession with vintage royal carriages.</li>
+                  <li><strong>Pheras &amp; Kanyadaan:</strong> Twilight Vedic ceremony under the open stars.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Panels -->
+          <div style="display: grid; grid-template-columns: 2fr 1.2fr; gap: 24px;">
+            <div class="checklist-group">
+              <h3>Upcoming Urgent Milestones</h3>
+              <div class="checklist-items">
+                <div class="checklist-row">
+                  <input type="checkbox" id="ovTask1" checked />
+                  <span class="task-name">Approve floral botanical layout for palace Mandap &amp; Nikah Stage</span>
+                  <span class="task-tag">Floral</span>
+                </div>
+                <div class="checklist-row">
+                  <input type="checkbox" id="ovTask2" checked />
+                  <span class="task-name">Confirm royal procession &amp; vintage lake transport arrivals</span>
+                  <span class="task-tag">Concierge</span>
+                </div>
+                <div class="checklist-row">
+                  <input type="checkbox" id="ovTask3" />
+                  <span class="task-name">Finalize classical Sitar &amp; Sufi Qawwali arrangements</span>
+                  <span class="task-tag">Entertainment</span>
+                </div>
+                <div class="checklist-row">
+                  <input type="checkbox" id="ovTask4" />
+                  <span class="task-name">Select Nawabi royal feast menu with master chefs</span>
+                  <span class="task-tag">Gastronomy</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="checklist-group">
+              <h3>Celebration Palette</h3>
+              <p style="font-size: 13.5px; margin-bottom: 16px;">
+                Master Colors: <strong>Royal Velvet Burgundy, Imperial Antique Gold &amp; Silk Ivory</strong>.
+              </p>
+              <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                <div style="flex: 1; height: 48px; border-radius: 8px; background: #7B1123;" title="Royal Velvet Burgundy"></div>
+                <div style="flex: 1; height: 48px; border-radius: 8px; background: #CBA258;" title="Imperial Antique Gold"></div>
+                <div style="flex: 1; height: 48px; border-radius: 8px; background: #FAF7F2; border: 1px solid #ddd;" title="Silk Ivory"></div>
+                <div style="flex: 1; height: 48px; border-radius: 8px; background: #2A0B14;" title="Velvet Noir"></div>
+              </div>
+              <button class="btn btn-secondary" style="width: 100%; font-size: 12px;" data-tab="vendors" type="button">
+                Review All Decor &amp; Artisans &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: CHECKLIST -->
+        <section class="portal-view" id="view-checklist">
+          <div style="margin-bottom: 24px;">
+            <h2>The Haute Planning Checklist</h2>
+            <p id="checklistProgressLabel">Tracking 22 bespoke milestones curated by Atelier Master Director.</p>
+            <div style="width: 100%; height: 8px; background: var(--bg-subtle); border-radius: 999px; overflow: hidden; margin-top: 10px;">
+              <div id="checklistProgressBar" style="width: 68%; height: 100%; background: var(--rose); border-radius: 999px; transition: width 0.4s ease;"></div>
+            </div>
+          </div>
+
+          <!-- Phase 1 -->
+          <div class="checklist-group">
+            <h3>Phase 1 &middot; Architectural Blueprint (12 &ndash; 9 Months Prior)</h3>
+            <div class="checklist-items">
+              <label class="checklist-row">
+                <input type="checkbox" checked />
+                <span class="task-name">Secure exclusive 3-day buyout of Udaipur City Palace estate</span>
+                <span class="task-tag">Venue</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" checked />
+                <span class="task-name">Define master color theory: Royal Burgundy &amp; Imperial Antique Gold</span>
+                <span class="task-tag">Design</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" checked />
+                <span class="task-name">Commission bespoke calligraphy save-the-date suite with gold foil</span>
+                <span class="task-tag">Stationery</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="checklist-group">
+            <h3>Phase 2 &middot; Artisan Curation (8 &ndash; 5 Months Prior)</h3>
+            <div class="checklist-items">
+              <label class="checklist-row">
+                <input type="checkbox" checked />
+                <span class="task-name">Contract Vogue-featured editorial photography &amp; 35mm film crew</span>
+                <span class="task-tag">Cinema</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Private bridal haute couture trousseau fitting</span>
+                <span class="task-tag">Attire</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Reserve private vintage royal carriages and luxury lake boats</span>
+                <span class="task-tag">Concierge</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Review 3D Vedic Mandap &amp; Nikah floral stage mockups</span>
+                <span class="task-tag">Floral</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="checklist-group">
+            <h3>Phase 3 &middot; Sensory Refinement (4 &ndash; 2 Months Prior)</h3>
+            <div class="checklist-items">
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Attend private royal gastronomy tasting menu with Master Chefs</span>
+                <span class="task-tag">Tasting</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Confirm final guest RSVP headcount and Haldi / Sangeet seating</span>
+                <span class="task-tag">RSVP</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Approve fireworks display and lake palace illumination</span>
+                <span class="task-tag">Production</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="checklist-group">
+            <h3>Phase 4 &middot; The Celebration Weekend</h3>
+            <div class="checklist-items">
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Welcome cocktail &amp; Sufi Mehfil for international guests</span>
+                <span class="task-tag">Hospitality</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Rehearsal dinner in royal courtyards with live acoustic Sitar ensemble</span>
+                <span class="task-tag">Rehearsal</span>
+              </label>
+              <label class="checklist-row">
+                <input type="checkbox" />
+                <span class="task-name">Day-Of Haute Orchestration by Atelier Master Director</span>
+                <span class="task-tag">Celebration</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: VENDORS & ARTISANS -->
+        <section class="portal-view" id="view-vendors">
+          <div style="margin-bottom: 24px;">
+            <h2>Master Artisans &amp; Vendor Partners</h2>
+            <p>Every confirmed artisan has been vetted to uphold our exacting standards of luxury.</p>
+          </div>
+
+          <div class="vendor-cards-grid">
+            <article class="vendor-card">
+              <span class="vendor-status confirmed">Confirmed &middot; Contract Signed</span>
+              <h3>Udaipur City Palace</h3>
+              <p>Exclusive 3-day private estate buyout, Lake Pichola courtyards, and private jetty docking.</p>
+              <span class="vendor-amount">$65,000 &middot; Estate Buyout</span>
+            </article>
+
+            <article class="vendor-card">
+              <span class="vendor-status confirmed">Confirmed &middot; Deposit Paid</span>
+              <h3>Flora &amp; Fable Floral Architecture</h3>
+              <p>Bespoke Vedic Mandap, 40-foot fragrant tuberose &amp; Dutch rose aisle, and royal arches.</p>
+              <span class="vendor-amount">$42,000 &middot; Floral Design</span>
+            </article>
+
+            <article class="vendor-card">
+              <span class="vendor-status confirmed">Confirmed &middot; Menu Approved</span>
+              <h3>Royal Awadhi &amp; Nawabi Feast Atelier</h3>
+              <p>Master multi-course royal tasting, live saffron Dum Biryani pots, and artisanal halwa stations.</p>
+              <span class="vendor-amount">$38,000 &middot; Gastronomy</span>
+            </article>
+
+            <article class="vendor-card">
+              <span class="vendor-status confirmed">Confirmed &middot; Shot List Ready</span>
+              <h3>Vogue Editorial Masters</h3>
+              <p>Full wedding weekend coverage with dual editorial photographers, 35mm film, and cinema drone.</p>
+              <span class="vendor-amount">$22,000 &middot; Cinema &amp; Photo</span>
+            </article>
+
+            <article class="vendor-card">
+              <span class="vendor-status review">Under Review &middot; Sound Check</span>
+              <h3>Royal Sitar &amp; Sufi Qawwali Ensemble</h3>
+              <p>Live classical strings for sacred pheras and modern Sufi fusion for evening celebrations.</p>
+              <span class="vendor-amount">$11,500 &middot; Entertainment</span>
+            </article>
+
+            <article class="vendor-card">
+              <span class="vendor-status confirmed">Confirmed &middot; Permitted</span>
+              <h3>Imperial Lake Pyrotechnics</h3>
+              <p>Midnight fireworks display over the lake choreographed to chosen soundtrack.</p>
+              <span class="vendor-amount">$6,500 &middot; Pyrotechnics</span>
+            </article>
+          </div>
+        </section>
+
+        <!-- VIEW 4: BUDGET & PAYMENTS -->
+        <section class="portal-view" id="view-budget">
+          <div style="margin-bottom: 24px;">
+            <h2>Investment Summary &amp; Milestone Payments</h2>
+            <p>Complete transparent accounting of all allocated, committed, and paid funds.</p>
+          </div>
+
+          <div class="budget-overview-panel">
+            <div class="budget-stats-bar">
+              <div>
+                <small style="color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px;">Total Allocated Budget</small>
+                <div style="font-family: var(--font-serif); font-size: 32px; color: var(--rose); font-weight: 700; margin-top: 4px;">
+                  $185,000
+                </div>
+              </div>
+              <div>
+                <small style="color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px;">Paid to Date</small>
+                <div style="font-family: var(--font-serif); font-size: 32px; color: #16a34a; font-weight: 700; margin-top: 4px;">
+                  $115,000
+                </div>
+              </div>
+              <div>
+                <small style="color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px;">Remaining Balance</small>
+                <div style="font-family: var(--font-serif); font-size: 32px; color: var(--ink); font-weight: 700; margin-top: 4px;">
+                  $70,000
+                </div>
+              </div>
+            </div>
+
+            <!-- Installments Table -->
+            <table class="payment-table">
+              <thead>
+                <tr>
+                  <th>Milestone</th>
+                  <th>Due Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Initial Atelier Retainer &amp; Estate Booking</strong></td>
+                  <td>Jan 15, 2026</td>
+                  <td>$50,000</td>
+                  <td><span class="payment-status-pill paid">Paid &middot; Wire</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Mid-Term Artisan Production Installment</strong></td>
+                  <td>Jun 30, 2026</td>
+                  <td>$65,000</td>
+                  <td><span class="payment-status-pill paid">Paid &middot; Wire</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Final Production Balance &amp; Day-Of Concierge</strong></td>
+                  <td>Aug 15, 2027</td>
+                  <td>$70,000</td>
+                  <td><span class="payment-status-pill pending" id="depositStatus">Due 30 Days Prior</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="payment-actions">
+              <button class="btn btn-primary" id="demoPayDepositBtn" type="button">
+                Simulate Balance Payment &rarr;
+              </button>
+              <button class="btn btn-secondary" id="downloadStatementBtn" type="button">
+                Download Official Statement (.txt)
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js?v=3.0"></script>
+  <script src="assets/js/dashboard.js?v=3.0"></script>
+
+  <script>
+    // Tradition Switching Logic
+    const hinduData = {
+      names: 'Aarav & Ananya',
+      venue: 'Udaipur City Palace',
+      tradition: 'Hindu Vivah Suite',
+      date: 'Nov 18, 2027',
+      img: 'assets/images/unique/dashboard-overview.jpg',
+      caption: 'Udaipur Palace Vedic Mandap',
+      sub: 'Hand-carved marble mandap with sacred Agni altar, marigold cascading garlands & brass lanterns.'
+    };
+
+    const muslimData = {
+      names: 'Zayd & Fatima',
+      venue: 'Chowmahalla Palace',
+      tradition: 'Muslim Nikah & Walima Suite',
+      date: 'Dec 12, 2027',
+      img: 'assets/images/cultural/muslim-nikah-ceremony.jpg',
+      caption: 'Nawabi Nikah & Dawat-e-Walima Atelier',
+      sub: 'Nawabi palace hall with crystal chandeliers, white floral arch stage, Mughal arches & red velvet diwans.'
+    };
+
+    function applyTradition(data) {
+      document.getElementById('activeTraditionLabel').textContent = (data.tradition.includes('Hindu') ? 'ðŸ•‰ï¸ ' : 'â˜ªï¸ ') + data.tradition;
+      document.getElementById('activeCoupleLabel').textContent = data.names + ' Â· ' + data.venue;
+      document.getElementById('topCoupleName').textContent = data.names;
+      document.getElementById('topCoupleVenue').textContent = data.venue + ' Â· 2027';
+      document.getElementById('menuCoupleName').textContent = data.names;
+      document.getElementById('menuStatusTag').textContent = data.tradition + ' Â· ' + data.venue;
+      document.getElementById('welcomeHeroHeading').textContent = 'Welcome, ' + data.names + '.';
+      document.getElementById('welcomeHeroSub').textContent = 'Your celebration at ' + data.venue + ' is in Phase 2: Artisan Curation & Cultural Floral Design.';
+      document.getElementById('overviewTraditionTitle').textContent = data.tradition;
+      document.getElementById('overviewTraditionCaption').textContent = data.caption;
+      
+      const img = document.getElementById('overviewTraditionImg');
+      if (img) img.src = data.img;
+      const topAv = document.getElementById('topAvatarImg');
+      if (topAv) topAv.src = data.img;
+      const menuAv = document.getElementById('menuAvatarImg');
+      if (menuAv) menuAv.src = data.img;
+    }
+
+    document.getElementById('btnSwitchHindu')?.addEventListener('click', () => {
+      applyTradition(hinduData);
+      localStorage.setItem('ff-tradition', 'Hindu Vivah');
+      if (window.toast) window.toast('Switched to Aarav & Ananya (Hindu Vivah)');
+    });
+
+    document.getElementById('btnSwitchMuslim')?.addEventListener('click', () => {
+      applyTradition(muslimData);
+      localStorage.setItem('ff-tradition', 'Muslim Nikah');
+      if (window.toast) window.toast('Switched to Zayd & Fatima (Muslim Nikah)');
+    });
+
+    document.getElementById('sidebarDownloadBtn')?.addEventListener('click', () => {
+      document.getElementById('downloadStatementBtn')?.click();
+    });
+
+    // Check stored preference on load
+    const savedTradition = localStorage.getItem('ff-tradition');
+    if (savedTradition && savedTradition.includes('Muslim')) {
+      applyTradition(muslimData);
+    } else {
+      applyTradition(hinduData);
+    }
+  </script>
+
+</body>
+</html>
