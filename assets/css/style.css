@@ -714,9 +714,9 @@ body[dir="rtl"] .text-link:hover span {
   gap: 10px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--rose);
+  color: var(--champagne);
   margin-bottom: 10px;
 }
 
@@ -833,6 +833,64 @@ body[dir="rtl"] .section-heading.text-left {
 @keyframes marqueeScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   Section 2: The Atelier Story & Philosophy
+   ========================================================================== */
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(36px, 5vw, 76px);
+  align-items: center;
+}
+
+.story-figure {
+  width: 92%;
+  max-width: 480px;
+  aspect-ratio: 4 / 4.8;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 2px solid var(--champagne);
+  box-shadow: var(--shadow-lg);
+  margin: 0;
+  position: relative;
+}
+
+.story-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.creed-badge {
+  position: absolute;
+  bottom: -16px;
+  inset-inline-end: 0;
+  background: var(--paper);
+  border: 1.5px solid var(--line-accent);
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  z-index: 5;
+}
+
+.creed-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  font-weight: 700;
+  display: block;
+}
+
+.creed-title {
+  font-size: 16px;
+  color: var(--ink);
+  display: block;
 }
 
 /* ==========================================================================
@@ -1545,6 +1603,12 @@ body[dir="rtl"] .section-heading.text-left {
   .story-grid {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
+  }
+  .story-figure {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    max-height: 400px !important;
   }
   .traditions-grid {
     grid-template-columns: 1fr !important;
