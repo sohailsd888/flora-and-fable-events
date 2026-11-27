@@ -806,8 +806,41 @@ body.dark .portal-sidebar {
 }
 
 body.dark .sidebar-tradition-card {
-  background: #1F070E !important;
-  border-color: rgba(203, 162, 88, 0.3) !important;
+  background: #1C060D !important;
+  border: 1px solid rgba(203, 162, 88, 0.38) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark .sidebar-tradition-card strong,
+body.dark #activeTraditionLabel {
+  color: #FFF9E8 !important; /* Radiant Luminous Gold / Ivory */
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .sidebar-tradition-card small,
+body.dark #activeCoupleLabel {
+  color: #D8C4BC !important; /* Soft Ivory / Champagne */
+}
+
+body.dark .tradition-switch-btn {
+  background: rgba(255, 255, 255, 0.07) !important;
+  color: #FAF7F2 !important;
+  border: 1px solid rgba(203, 162, 88, 0.32) !important;
+}
+
+body.dark .tradition-switch-btn:hover {
+  background: rgba(203, 162, 88, 0.22) !important;
+  color: #FFF9E8 !important;
+  border-color: #E5C170 !important;
+}
+
+body.dark .tradition-switch-btn.active {
+  background: linear-gradient(135deg, #7B1123 0%, #4D0A16 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #E5C170 !important;
+  box-shadow: 0 2px 8px rgba(229, 193, 112, 0.28) !important;
+  font-weight: 700 !important;
 }
 
 body.dark .portal-nav-link {

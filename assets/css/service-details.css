@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    CELESTIA — Service Detail Pages Architecture
    5 Unique Viewport-Fitted Heroes, 5 Distinct Image-Rich CTAs & Detail UI
    ========================================================================== */
@@ -144,7 +144,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   SERVICE HERO 4: Multi-Day Guest Soirées (Twilight Dual-Horizon Showcase)
+   SERVICE HERO 4: Multi-Day Guest Soirees (Twilight Dual-Horizon Showcase)
    -------------------------------------------------------------------------- */
 .hero-sd-soirees {
   min-height: calc(92svh - var(--header-height));

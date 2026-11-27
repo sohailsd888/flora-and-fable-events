@@ -60,45 +60,8 @@
 
   if (reduceMotion) return;
 
-  // 3. Luxury Cursor Aura & Subtle Magnetic Pull on Primary Buttons
+  // 3. Subtle Magnetic Pull on Primary Buttons (Clean native cursor, no trailing circles)
   if (finePointer) {
-    const aura = document.createElement("div");
-    aura.className = "cursor-aura";
-    const dot = document.createElement("div");
-    dot.className = "cursor-dot";
-    document.body.append(aura, dot);
-
-    let mx = -100, my = -100, ax = -100, ay = -100;
-    let shown = false;
-
-    window.addEventListener("pointermove", (e) => {
-      if (e.pointerType !== "mouse") return;
-      mx = e.clientX;
-      my = e.clientY;
-      dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
-      if (!shown) {
-        ax = mx; ay = my;
-        shown = true;
-        aura.classList.add("visible");
-        dot.classList.add("visible");
-      }
-      const interactive = e.target.closest("a, button, .split-card, .moodboard-item, .feature-card, summary");
-      aura.classList.toggle("active-hover", Boolean(interactive));
-    }, { passive: true });
-
-    document.addEventListener("pointerleave", () => {
-      aura.classList.remove("visible");
-      dot.classList.remove("visible");
-      shown = false;
-    });
-
-    (function loopCursor() {
-      ax += (mx - ax) * 0.14;
-      ay += (my - ay) * 0.14;
-      aura.style.transform = `translate3d(${ax.toFixed(1)}px, ${ay.toFixed(1)}px, 0)`;
-      requestAnimationFrame(loopCursor);
-    })();
-
     // Magnetic button pull
     document.querySelectorAll(".btn-primary, .btn-emerald, .loginbtn").forEach((btn) => {
       btn.addEventListener("pointermove", (e) => {

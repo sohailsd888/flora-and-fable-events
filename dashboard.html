@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Couples Suite | Flora & Fable Events â€” Luxury Wedding Atelier</title>
+  <title>Couples Suite | Flora & Fable Events &mdash; Luxury Wedding Atelier</title>
   <meta content="Client dashboard for tracking the royal wedding checklist, reviewing Hindu Vivah and Muslim Nikah rituals, vendor decor, budget ledger, and concierge communications." name="description" />
   
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
 
   <!-- Core & Dashboard Styles -->
-  <link href="assets/css/style.css?v=3.0" rel="stylesheet" />
-  <link href="assets/css/dashboard.css?v=3.0" rel="stylesheet" />
+  <link href="assets/css/style.css?v=7.0" rel="stylesheet" />
+  <link href="assets/css/dashboard.css?v=7.0" rel="stylesheet" />
   
   <style>
     /* Fixed Non-Scrolling Left Sidebar */
@@ -59,13 +59,42 @@
       display: block;
       font-size: 13px;
       color: var(--rose);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
+      font-weight: 700;
     }
     .sidebar-tradition-card small {
       font-size: 11px;
       color: var(--muted);
       line-height: 1.4;
       display: block;
+    }
+    .tradition-switch-btn {
+      flex: 1;
+      padding: 6px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: #FDFBF7;
+      color: #5C1324;
+      border: 1px solid rgba(123, 17, 35, 0.2);
+    }
+    .tradition-switch-btn:hover {
+      background: #FAF0E4;
+      border-color: var(--champagne);
+      color: #7B1123;
+    }
+    .tradition-switch-btn.active {
+      background: #5C1324 !important;
+      color: #FAF7F2 !important;
+      border-color: #CBA258 !important;
+      box-shadow: 0 2px 6px rgba(92, 19, 36, 0.25);
+      font-weight: 700;
     }
     .sidebar-founder-chip {
       background: linear-gradient(135deg, #2A0B14 0%, #15050A 100%);
@@ -102,14 +131,14 @@
 
       <!-- Quick Tradition Switcher -->
       <div class="sidebar-tradition-card">
-        <strong id="activeTraditionLabel">ðŸ•‰ï¸ Hindu Vivah Suite</strong>
+        <strong id="activeTraditionLabel">&#128333;&#65039; Hindu Vivah Suite</strong>
         <small id="activeCoupleLabel">Aarav &amp; Ananya &middot; Udaipur Palace</small>
         <div style="display: flex; gap: 6px; margin-top: 8px;">
-          <button type="button" class="btn" id="btnSwitchHindu" style="flex: 1; padding: 4px 6px; font-size: 10.5px; background: var(--bg-subtle); border: 1px solid var(--line); border-radius: 4px; cursor: pointer;">
-            ðŸ•‰ï¸ Hindu
+          <button type="button" class="tradition-switch-btn active" id="btnSwitchHindu">
+            &#128333;&#65039; Hindu
           </button>
-          <button type="button" class="btn" id="btnSwitchMuslim" style="flex: 1; padding: 4px 6px; font-size: 10.5px; background: var(--bg-subtle); border: 1px solid var(--line); border-radius: 4px; cursor: pointer;">
-            â˜ªï¸ Muslim
+          <button type="button" class="tradition-switch-btn" id="btnSwitchMuslim">
+            &#9770;&#65039; Muslim
           </button>
         </div>
       </div>
@@ -355,7 +384,7 @@
                 <h4 style="font-size: 15px; margin: 0 0 10px; color: var(--ink);">Ceremony Timeline Milestones:</h4>
                 <ul style="padding-left: 18px; margin: 0; font-size: 13px; color: var(--muted); line-height: 1.8;">
                   <li><strong>Haldi &amp; Chooda:</strong> Saffron botanical pastels &amp; courtyard marigold decor.</li>
-                  <li><strong>Sangeet Soir&eacute;e:</strong> Crystal chandeliers, acoustic sitar &amp; royal banquet.</li>
+                  <li><strong>Sangeet Soiree:</strong> Crystal chandeliers, acoustic sitar &amp; royal banquet.</li>
                   <li><strong>Baraat Grand Entrance:</strong> Royal procession with vintage royal carriages.</li>
                   <li><strong>Pheras &amp; Kanyadaan:</strong> Twilight Vedic ceremony under the open stars.</li>
                 </ul>
@@ -643,8 +672,8 @@
   <div class="toast" id="toast" role="status"></div>
 
   <!-- Scripts -->
-  <script src="assets/js/app.js?v=3.0"></script>
-  <script src="assets/js/dashboard.js?v=3.0"></script>
+  <script src="assets/js/app.js?v=7.0"></script>
+  <script src="assets/js/dashboard.js?v=7.0"></script>
 
   <script>
     // Tradition Switching Logic
@@ -669,16 +698,43 @@
     };
 
     function applyTradition(data) {
-      document.getElementById('activeTraditionLabel').textContent = (data.tradition.includes('Hindu') ? 'ðŸ•‰ï¸ ' : 'â˜ªï¸ ') + data.tradition;
-      document.getElementById('activeCoupleLabel').textContent = data.names + ' Â· ' + data.venue;
-      document.getElementById('topCoupleName').textContent = data.names;
-      document.getElementById('topCoupleVenue').textContent = data.venue + ' Â· 2027';
-      document.getElementById('menuCoupleName').textContent = data.names;
-      document.getElementById('menuStatusTag').textContent = data.tradition + ' Â· ' + data.venue;
-      document.getElementById('welcomeHeroHeading').textContent = 'Welcome, ' + data.names + '.';
-      document.getElementById('welcomeHeroSub').textContent = 'Your celebration at ' + data.venue + ' is in Phase 2: Artisan Curation & Cultural Floral Design.';
-      document.getElementById('overviewTraditionTitle').textContent = data.tradition;
-      document.getElementById('overviewTraditionCaption').textContent = data.caption;
+      const isHindu = data.tradition.includes('Hindu');
+      const tradLabel = document.getElementById('activeTraditionLabel');
+      if (tradLabel) tradLabel.innerHTML = (isHindu ? '&#128333;&#65039; ' : '&#9770;&#65039; ') + data.tradition;
+      
+      const coupleLabel = document.getElementById('activeCoupleLabel');
+      if (coupleLabel) coupleLabel.innerHTML = data.names + ' &middot; ' + data.venue;
+      
+      const topName = document.getElementById('topCoupleName');
+      if (topName) topName.textContent = data.names;
+      
+      const topVenue = document.getElementById('topCoupleVenue');
+      if (topVenue) topVenue.innerHTML = data.venue + ' &middot; 2027';
+      
+      const menuName = document.getElementById('menuCoupleName');
+      if (menuName) menuName.textContent = data.names;
+      
+      const statusTag = document.getElementById('menuStatusTag');
+      if (statusTag) statusTag.innerHTML = data.tradition + ' &middot; ' + data.venue;
+      
+      const welcomeH = document.getElementById('welcomeHeroHeading');
+      if (welcomeH) welcomeH.textContent = 'Welcome, ' + data.names + '.';
+      
+      const welcomeSub = document.getElementById('welcomeHeroSub');
+      if (welcomeSub) welcomeSub.textContent = 'Your celebration at ' + data.venue + ' is in Phase 2: Artisan Curation & Cultural Floral Design.';
+      
+      const ovTitle = document.getElementById('overviewTraditionTitle');
+      if (ovTitle) ovTitle.textContent = data.tradition;
+      
+      const ovCap = document.getElementById('overviewTraditionCaption');
+      if (ovCap) ovCap.textContent = data.caption;
+      
+      const btnHindu = document.getElementById('btnSwitchHindu');
+      const btnMuslim = document.getElementById('btnSwitchMuslim');
+      if (btnHindu && btnMuslim) {
+        btnHindu.classList.toggle('active', isHindu);
+        btnMuslim.classList.toggle('active', !isHindu);
+      }
       
       const img = document.getElementById('overviewTraditionImg');
       if (img) img.src = data.img;
@@ -696,9 +752,17 @@
 
     document.getElementById('btnSwitchMuslim')?.addEventListener('click', () => {
       applyTradition(muslimData);
-      localStorage.setItem('ff-tradition', 'Muslim Nikah');
+      localStorage.setItem('ff-tradition', 'Muslim Nikah & Walima');
       if (window.toast) window.toast('Switched to Zayd & Fatima (Muslim Nikah)');
     });
+
+    // Check stored tradition preference on init
+    const storedTradition = localStorage.getItem('ff-tradition');
+    if (storedTradition && (storedTradition.includes('Muslim') || storedTradition.includes('Nikah'))) {
+      applyTradition(muslimData);
+    } else {
+      applyTradition(hinduData);
+    }
 
     document.getElementById('sidebarDownloadBtn')?.addEventListener('click', () => {
       document.getElementById('downloadStatementBtn')?.click();

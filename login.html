@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Couples Login | Flora &amp; Fable Events â€” Luxury Weddings &amp; Celebrations</title>
+  <title>Couples Login | Flora &amp; Fable Events &mdash; Luxury Weddings &amp; Celebrations</title>
   <meta content="Sign in to your private Flora &amp; Fable couples suite to review wedding checklists, Hindu Vivah or Muslim Nikah rituals, vendor contracts, and planning timelines." name="description" />
   
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
-  <link href="assets/css/style.css?v=3.0" rel="stylesheet" />
+  <link href="assets/css/style.css?v=7.0" rel="stylesheet" />
   <style>
     html, body {
       margin: 0;
@@ -357,12 +357,15 @@
       border-color: rgba(203, 162, 88, 0.25);
     }
     body.dark .suite-btn {
-      color: #C8B2B8;
+      color: #E8D4DC;
+      font-weight: 600;
     }
     body.dark .suite-btn.active {
-      background: #230810;
-      color: var(--champagne);
-      border-color: var(--champagne);
+      background: #3B0E1B;
+      color: #FFF9E8;
+      border: 1px solid #E5C170;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     body.dark .input-wrap {
       background: #140408;
@@ -406,15 +409,15 @@
       </div>
 
       <div class="showcase-footer">
-        <span>âœ¦ <strong>Discreet Confidentiality Protocol</strong></span>
-        <span>24/7 Atelier Concierge âœ¦</span>
+        <span>&#10022; <strong>Discreet Confidentiality Protocol</strong></span>
+        <span>24/7 Atelier Concierge &#10022;</span>
       </div>
     </aside>
 
     <!-- RIGHT SIDE: AUTHENTICATION FORM -->
     <main class="auth-right-container">
       <div class="login-tools">
-        <button aria-label="Toggle theme" class="iconbtn" id="themeToggle" title="Toggle Theme">â—</button>
+        <button aria-label="Toggle theme" class="iconbtn" id="themeToggle" title="Toggle Theme">&#9679;</button>
         <button aria-label="Toggle RTL" class="iconbtn" id="rtlToggle" title="Toggle RTL">RTL</button>
       </div>
 
@@ -452,10 +455,10 @@
         <!-- Quick Demo Switcher -->
         <div class="suite-switcher" role="tablist" aria-label="Demo Celebration Suites">
           <button class="suite-btn active" id="btnHindu" type="button" role="tab" aria-selected="true">
-            <span>ðŸ•‰ï¸</span> <span>Aarav &amp; Ananya</span>
+            <span>&#128333;&#65039;</span> <span>Aarav &amp; Ananya</span>
           </button>
           <button class="suite-btn" id="btnMuslim" type="button" role="tab" aria-selected="false">
-            <span>â˜ªï¸</span> <span>Zayd &amp; Fatima</span>
+            <span>&#9770;&#65039;</span> <span>Zayd &amp; Fatima</span>
           </button>
         </div>
 
@@ -499,7 +502,7 @@
   </div>
 
   <div class="toast" id="toast" role="status"></div>
-  <script src="assets/js/app.js?v=3.0"></script>
+  <script src="assets/js/app.js?v=7.0"></script>
   <script>
     const btnHindu = document.getElementById('btnHindu');
     const btnMuslim = document.getElementById('btnMuslim');
