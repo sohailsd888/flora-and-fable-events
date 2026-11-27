@@ -573,3 +573,93 @@
   .cta-services-media { clip-path: none; min-height: 240px; }
   .hero-packages-trio, .hero-services-dual-visual { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 768px) {
+  .hero-h1 {
+    padding: clamp(32px, 6vh, 48px) var(--container-pad) !important;
+  }
+  .hero-h1 .hero-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-inline: 0 !important;
+  }
+  .hero-h1 .hero-copy h1 {
+    font-size: clamp(26px, 7vw, 40px) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 12px !important;
+  }
+  .hero-h1 .hero-copy p {
+    font-size: 14.5px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
+    max-width: 100% !important;
+  }
+  .hero-h1 .hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 290px !important;
+    margin: 0 auto !important;
+    gap: 10px !important;
+  }
+  .hero-h1 .hero-actions .btn {
+    width: 100% !important;
+    padding: 11px 16px !important;
+    font-size: 12px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  .hero-h1 .hero-metrics {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px 10px !important;
+    margin-top: 22px !important;
+    padding-top: 16px !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin-inline: auto !important;
+  }
+  .hero-h1 .metric-number {
+    font-size: 24px !important;
+  }
+  .hero-h1 .metric-label {
+    font-size: 9.5px !important;
+  }
+
+  /* All CTA sections */
+  .cta-h1, .cta-h2, .cta-about, .cta-services, .cta-packages, .cta-gallery, .cta-contact {
+    min-height: auto !important;
+    padding: clamp(24px, 4vw, 36px) 16px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .cta-h1-content, .cta-h2-copy, .cta-about-content, .cta-services-copy, .cta-packages-content, .cta-gallery-copy, .cta-contact-inner {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .cta-h1-content h2, .cta-h2-copy h2, .cta-about-content h2, .cta-services-copy h2, .cta-packages-content h2, .cta-gallery-copy h2, .cta-contact h2 {
+    font-size: clamp(24px, 5.5vw, 34px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 10px !important;
+  }
+  .cta-h1-content p, .cta-h2-copy p, .cta-about-content p, .cta-services-copy p, .cta-packages-content p, .cta-gallery-copy p, .cta-contact p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
+  }
+  .cta-h1-content div[style*="display:flex"],
+  .cta-about-content div[style*="display:flex"],
+  .cta-packages-content div[style*="display:flex"] {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 290px !important;
+    gap: 10px !important;
+  }
+  .cta-h1-content .btn,
+  .cta-about-content .btn,
+  .cta-packages-content .btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}

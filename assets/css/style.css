@@ -1503,6 +1503,9 @@ body[dir="rtl"] .section-heading.text-left {
    ========================================================================== */
 
 @media (max-width: 1120px) {
+  :root {
+    --header-height: 68px;
+  }
   .nav {
     display: none;
     position: fixed;
@@ -1512,7 +1515,7 @@ body[dir="rtl"] .section-heading.text-left {
     background: var(--paper);
     flex-direction: column;
     align-items: flex-start;
-    padding: 30px;
+    padding: 24px 20px;
     gap: 16px;
     overflow-y: auto;
     border-top: 1px solid var(--line);
@@ -1538,7 +1541,83 @@ body[dir="rtl"] .section-heading.text-left {
   .calc-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
+  .story-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .traditions-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+    --container-pad: 14px;
+  }
+  .header {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  .brand {
+    gap: 8px;
+    min-width: 0;
+  }
+  .brand-logo-wrap {
+    width: 40px;
+    height: 40px;
+  }
+  .brand-type strong {
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .brand-type small {
+    display: none;
+  }
+  .nav-actions {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .iconbtn {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+  .iconbtn#rtlToggle {
+    min-width: 36px;
+    padding-inline: 6px;
+    font-size: 11px;
+  }
+  .loginbtn {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 12px;
+    gap: 4px;
+  }
+  .hamburger {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .tradition-card {
+    padding: 20px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .calc-box {
+    padding: 20px 14px !important;
+  }
+  .calc-result-number {
+    font-size: 32px !important;
+  }
+  .calc-breakdown {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
   .cards-grid, .cards-grid-2, .tiles-grid, .tiles-grid-3, .footer-top {
     grid-template-columns: 1fr;
   }
@@ -1549,6 +1628,91 @@ body[dir="rtl"] .section-heading.text-left {
     gap: 12px;
     text-align: center;
     padding-inline-end: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .creed-badge {
+    position: static !important;
+    margin-top: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px 14px !important;
+  }
+}
+
+@media (max-width: 440px) {
+  :root {
+    --header-height: 56px;
+    --container-pad: 12px;
+  }
+  .header {
+    padding: 0 8px;
+    gap: 4px;
+  }
+  .brand {
+    gap: 6px;
+  }
+  .brand-logo-wrap {
+    width: 34px;
+    height: 34px;
+  }
+  .brand-type strong {
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+  .nav-actions {
+    gap: 4px;
+  }
+  .iconbtn {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  .iconbtn#rtlToggle {
+    min-width: 30px;
+    padding-inline: 4px;
+    font-size: 10px;
+  }
+  .loginbtn {
+    height: 32px;
+    padding: 0 8px;
+    font-size: 11px;
+  }
+  .hamburger {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .btn {
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+  .calc-breakdown {
+    grid-template-columns: 1fr !important;
+  }
+  .calc-pills {
+    flex-direction: column;
+  }
+  .calc-pill {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 350px) {
+  .brand-type strong {
+    font-size: 11.5px;
+  }
+  .loginbtn {
+    padding: 0 6px;
+    font-size: 10px;
+  }
+  .iconbtn#rtlToggle {
+    display: none;
   }
 }
 

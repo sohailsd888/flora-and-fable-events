@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,7 +7,7 @@
   <meta content="Sign in to your private Flora &amp; Fable couples suite to review wedding checklists, Hindu Vivah or Muslim Nikah rituals, vendor contracts, and planning timelines." name="description" />
   
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
-  <link href="assets/css/style.css?v=7.0" rel="stylesheet" />
+  <link href="assets/css/style.css?v=9.0" rel="stylesheet" />
   <style>
     html, body {
       margin: 0;
@@ -165,26 +165,26 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: clamp(14px, 2.5vh, 28px) clamp(20px, 3.5vw, 44px);
+      padding: clamp(8px, 1.8vh, 20px) clamp(16px, 2.5vw, 36px);
       position: relative;
       box-sizing: border-box;
       background: var(--bg);
     }
     .login-tools {
       position: absolute;
-      top: 16px;
-      inset-inline-end: 22px;
+      top: 14px;
+      inset-inline-end: 20px;
       display: flex;
       gap: 10px;
       z-index: 20;
     }
     .auth-card {
       width: 100%;
-      max-width: 410px;
+      max-width: 395px;
       background: var(--paper);
       border: 1.5px solid var(--line-accent);
       border-radius: var(--radius-lg);
-      padding: clamp(18px, 2.5vh, 26px) clamp(20px, 2.5vw, 30px);
+      padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 24px);
       box-shadow: 0 10px 30px rgba(123, 17, 35, 0.08), 0 2px 8px rgba(0,0,0,0.04);
       box-sizing: border-box;
       margin: auto;
@@ -194,21 +194,21 @@
     .oauth-group {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-bottom: 14px;
+      gap: 6px;
+      margin-bottom: 8px;
     }
     .oauth-btn {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 9px 16px;
+      gap: 8px;
+      padding: 7px 12px;
       border-radius: var(--radius-md);
       border: 1.5px solid var(--line);
       background: var(--paper);
       color: var(--ink);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.25s ease;
@@ -221,8 +221,8 @@
       box-shadow: var(--shadow-sm);
     }
     .oauth-btn svg {
-      width: 17px;
-      height: 17px;
+      width: 15px;
+      height: 15px;
       flex-shrink: 0;
     }
 
@@ -230,9 +230,9 @@
       display: flex;
       align-items: center;
       text-align: center;
-      margin: 12px 0;
+      margin: 8px 0;
       color: var(--muted);
-      font-size: 10.5px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.15em;
     }
@@ -242,26 +242,26 @@
       border-bottom: 1px solid var(--line);
     }
     .auth-divider span {
-      padding: 0 12px;
+      padding: 0 10px;
     }
 
     /* Quick Suite Selector */
     .suite-switcher {
       display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-      padding: 4px;
+      gap: 6px;
+      margin-bottom: 9px;
+      padding: 3px;
       background: var(--bg-subtle);
       border-radius: var(--radius-pill);
       border: 1px solid var(--line);
     }
     .suite-btn {
       flex: 1;
-      padding: 6px 10px;
+      padding: 5px 8px;
       border: none;
       background: transparent;
       border-radius: var(--radius-pill);
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--muted);
       cursor: pointer;
@@ -269,7 +269,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 4px;
     }
     .suite-btn.active {
       background: var(--paper);
@@ -280,12 +280,12 @@
 
     .auth-form label {
       display: block;
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .input-wrap {
       display: flex;
@@ -293,8 +293,8 @@
       border: 1.5px solid var(--line);
       border-radius: var(--radius-sm);
       background: var(--bg-subtle);
-      padding: 0 12px;
-      margin-bottom: 11px;
+      padding: 0 10px;
+      margin-bottom: 7px;
       transition: border-color 0.25s ease;
     }
     .input-wrap:focus-within {
@@ -305,16 +305,16 @@
       flex: 1;
       border: none;
       background: transparent;
-      padding: 9px 6px;
-      font-size: 13px;
+      padding: 6.5px 5px;
+      font-size: 12.5px;
       color: var(--ink);
       outline: none;
       font-family: var(--font-main);
     }
     .password-toggle {
       color: var(--muted);
-      font-size: 12px;
-      padding: 4px;
+      font-size: 11px;
+      padding: 3px 5px;
       cursor: pointer;
       background: none;
       border: none;
@@ -325,9 +325,9 @@
     }
     .auth-submit {
       width: 100%;
-      margin-top: 6px;
-      padding: 11px 18px;
-      font-size: 13.5px;
+      margin-top: 4px;
+      padding: 9.5px 16px;
+      font-size: 12.5px;
       font-weight: 700;
     }
 
@@ -417,15 +417,15 @@
     <!-- RIGHT SIDE: AUTHENTICATION FORM -->
     <main class="auth-right-container">
       <div class="login-tools">
-        <button aria-label="Toggle theme" class="iconbtn" id="themeToggle" title="Toggle Theme">&#9679;</button>
+        <button aria-label="Toggle theme" class="iconbtn" id="themeToggle" title="Toggle Theme">&#9679;�</button>
         <button aria-label="Toggle RTL" class="iconbtn" id="rtlToggle" title="Toggle RTL">RTL</button>
       </div>
 
       <article class="auth-card">
-        <div style="text-align:center; margin-bottom:16px;">
-          <span class="eyebrow" style="color:var(--champagne); margin-bottom:4px;">COUPLES SUITE</span>
-          <h1 style="font-size:24px; margin:4px 0 2px;">Private Sign In</h1>
-          <p style="font-size:13px; color:var(--muted); margin:0;">Enter your private suite to manage your celebration.</p>
+        <div style="text-align:center; margin-bottom:10px;">
+          <span class="eyebrow" style="color:var(--champagne); margin-bottom:2px; font-size:9.5px;">COUPLES SUITE</span>
+          <h1 style="font-size:20px; margin:2px 0 1px;">Private Sign In</h1>
+          <p style="font-size:11.5px; color:var(--muted); margin:0;">Enter your private suite to manage your celebration.</p>
         </div>
 
         <!-- Continue with Google & Apple (NO LOCK ICON) -->
@@ -466,7 +466,7 @@
         <form class="auth-form" id="loginForm">
           <label for="email">Couple's Registered Email</label>
           <div class="input-wrap">
-            <span style="color:var(--rose); font-size:15px;">&#9993;</span>
+            <span style="color:var(--rose); font-size:14px;">&#9993;</span>
             <input autocomplete="email" id="email" placeholder="aarav.ananya@floraandfable.com" required="" type="email" value="aarav.ananya@floraandfable.com" />
           </div>
 
@@ -476,8 +476,8 @@
             <button aria-label="Toggle password visibility" class="password-toggle" id="showPassword" type="button">SHOW</button>
           </div>
 
-          <div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:18px;">
-            <label style="display:flex; align-items:center; gap:6px; font-weight:normal; cursor:pointer; text-transform:none; letter-spacing:normal;">
+          <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:9px;">
+            <label style="display:flex; align-items:center; gap:5px; font-weight:normal; cursor:pointer; text-transform:none; letter-spacing:normal;">
               <input type="checkbox" checked style="accent-color:var(--rose);" /> Remember this device
             </label>
             <a href="#" style="color:var(--rose); font-weight:700;" onclick="toast('Passcode reminder sent to registered concierge email.'); return false;">
@@ -490,11 +490,11 @@
           </button>
         </form>
 
-        <p style="text-align:center; font-size:13px; margin-top:18px; margin-bottom:6px;">
+        <p style="text-align:center; font-size:11.5px; margin-top:8px; margin-bottom:2px;">
           New couple? <a href="signup.html" style="color:var(--rose); font-weight:700;">Create Couples Account &rarr;</a>
         </p>
         <p style="text-align:center; margin:0;">
-          <a href="index.html" style="font-size:12.5px; color:var(--muted);">&larr; Return to Flora &amp; Fable Events</a>
+          <a href="index.html" style="font-size:11px; color:var(--muted);">&larr; Return to Flora &amp; Fable Events</a>
         </p>
       </article>
     </main>
@@ -502,7 +502,7 @@
   </div>
 
   <div class="toast" id="toast" role="status"></div>
-  <script src="assets/js/app.js?v=7.0"></script>
+  <script src="assets/js/app.js?v=9.0"></script>
   <script>
     const btnHindu = document.getElementById('btnHindu');
     const btnMuslim = document.getElementById('btnMuslim');

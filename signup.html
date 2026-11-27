@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,7 +7,7 @@
   <meta content="Register your private Flora &amp; Fable Couples Suite account to track Hindu Vivah or Muslim Nikah checklists, vendor contracts, and planning timelines." name="description" />
   
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
-  <link href="assets/css/style.css?v=7.0" rel="stylesheet" />
+  <link href="assets/css/style.css?v=9.0" rel="stylesheet" />
   <style>
     html, body {
       margin: 0;
@@ -165,26 +165,26 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: clamp(10px, 2vh, 22px) clamp(20px, 3.5vw, 44px);
+      padding: clamp(8px, 1.8vh, 20px) clamp(16px, 2.5vw, 36px);
       position: relative;
       box-sizing: border-box;
       background: var(--bg);
     }
     .login-tools {
       position: absolute;
-      top: 16px;
-      inset-inline-end: 22px;
+      top: 14px;
+      inset-inline-end: 20px;
       display: flex;
       gap: 10px;
       z-index: 20;
     }
     .auth-card {
       width: 100%;
-      max-width: 440px;
+      max-width: 410px;
       background: var(--paper);
       border: 1.5px solid var(--line-accent);
       border-radius: var(--radius-lg);
-      padding: clamp(14px, 2vh, 22px) clamp(18px, 2.5vw, 26px);
+      padding: clamp(12px, 1.8vh, 18px) clamp(16px, 2vw, 24px);
       box-shadow: 0 10px 30px rgba(123, 17, 35, 0.08), 0 2px 8px rgba(0,0,0,0.04);
       box-sizing: border-box;
       margin: auto;
@@ -194,21 +194,21 @@
     .oauth-group {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 8px;
+      margin-bottom: 8px;
     }
     .oauth-btn {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 8px 12px;
+      gap: 6px;
+      padding: 6.5px 10px;
       border-radius: var(--radius-md);
       border: 1.5px solid var(--line);
       background: var(--paper);
       color: var(--ink);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.25s ease;
@@ -222,8 +222,8 @@
       box-shadow: var(--shadow-sm);
     }
     .oauth-btn svg {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       flex-shrink: 0;
     }
 
@@ -231,9 +231,9 @@
       display: flex;
       align-items: center;
       text-align: center;
-      margin: 10px 0;
+      margin: 7px 0;
       color: var(--muted);
-      font-size: 10.5px;
+      font-size: 9.5px;
       text-transform: uppercase;
       letter-spacing: 0.15em;
     }
@@ -248,12 +248,12 @@
 
     .auth-form label {
       display: block;
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .input-wrap {
       display: flex;
@@ -262,7 +262,7 @@
       border-radius: var(--radius-sm);
       background: var(--bg-subtle);
       padding: 0 10px;
-      margin-bottom: 9px;
+      margin-bottom: 6px;
       transition: border-color 0.25s ease;
     }
     .input-wrap:focus-within {
@@ -273,8 +273,8 @@
       flex: 1;
       border: none;
       background: transparent;
-      padding: 8px 4px;
-      font-size: 12.5px;
+      padding: 6px 4px;
+      font-size: 12px;
       color: var(--ink);
       outline: none;
       font-family: var(--font-main);
@@ -282,7 +282,7 @@
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 8px;
     }
     @media (max-width: 500px) {
       .form-row {
@@ -368,15 +368,15 @@
     <!-- RIGHT SIDE: SIGN UP FORM -->
     <main class="auth-right-container">
       <div class="login-tools">
-        <button aria-label="Toggle theme" class="iconbtn" id="themeToggle" title="Toggle Theme">&#9679;</button>
+        <button aria-label="Toggle theme" class="iconbtn" id="themeToggle" title="Toggle Theme">&#9679;�</button>
         <button aria-label="Toggle RTL" class="iconbtn" id="rtlToggle" title="Toggle RTL">RTL</button>
       </div>
 
       <article class="auth-card">
-        <div style="text-align:center; margin-bottom:12px;">
-          <span class="eyebrow" style="color:var(--champagne); margin-bottom:3px;">BEGIN YOUR ROYAL JOURNEY</span>
-          <h1 style="font-size:22px; margin:2px 0;">Create Couples Account</h1>
-          <p style="font-size:12px; color:var(--muted); margin:0;">Register to unlock your private celebration portal.</p>
+        <div style="text-align:center; margin-bottom:9px;">
+          <span class="eyebrow" style="color:var(--champagne); margin-bottom:2px; font-size:9.5px;">BEGIN YOUR ROYAL JOURNEY</span>
+          <h1 style="font-size:20px; margin:2px 0 1px;">Create Couples Account</h1>
+          <p style="font-size:11.5px; color:var(--muted); margin:0;">Register to unlock your private celebration portal.</p>
         </div>
 
         <!-- Continue with Google & Apple (NO LOCK ICON) -->
@@ -445,16 +445,16 @@
             </div>
           </div>
 
-          <button class="btn btn-primary" style="width:100%; border-radius:var(--radius-md); padding:13px; font-weight:700; margin-top:6px;" type="submit">
+          <button class="btn btn-primary" style="width:100%; border-radius:var(--radius-md); padding:9.5px 16px; font-size:12.5px; font-weight:700; margin-top:4px;" type="submit">
             Create Private Suite &rarr;
           </button>
         </form>
 
-        <p style="text-align:center; font-size:13px; margin-top:16px; margin-bottom:4px;">
+        <p style="text-align:center; font-size:11.5px; margin-top:8px; margin-bottom:2px;">
           Already registered? <a href="login.html" style="color:var(--rose); font-weight:700;">Sign In Here &rarr;</a>
         </p>
         <p style="text-align:center; margin:0;">
-          <a href="index.html" style="font-size:12px; color:var(--muted);">&larr; Return to Flora &amp; Fable Events</a>
+          <a href="index.html" style="font-size:11px; color:var(--muted);">&larr; Return to Flora &amp; Fable Events</a>
         </p>
       </article>
     </main>
@@ -462,7 +462,7 @@
   </div>
 
   <div class="toast" id="toast" role="status"></div>
-  <script src="assets/js/app.js?v=7.0"></script>
+  <script src="assets/js/app.js?v=9.0"></script>
   <script>
     document.getElementById('btnGoogleSignup')?.addEventListener('click', () => {
       toast('Connecting with Google...');

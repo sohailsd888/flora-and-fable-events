@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -9,11 +9,11 @@
   <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg" />
 
   <!-- Core & Unique Stylesheets -->
-  <link href="assets/css/style.css?v=7.0" rel="stylesheet" />
-  <link href="assets/css/cta-hero-styles.css?v=7.0" rel="stylesheet" />
-  <link href="assets/css/voyage-slider.css?v=7.0" rel="stylesheet" />
-  <link href="assets/css/split-cards.css?v=7.0" rel="stylesheet" />
-  <link href="assets/css/effects.css?v=7.0" rel="stylesheet" />
+  <link href="assets/css/style.css?v=9.0" rel="stylesheet" />
+  <link href="assets/css/cta-hero-styles.css?v=9.0" rel="stylesheet" />
+  <link href="assets/css/voyage-slider.css?v=9.0" rel="stylesheet" />
+  <link href="assets/css/split-cards.css?v=9.0" rel="stylesheet" />
+  <link href="assets/css/effects.css?v=9.0" rel="stylesheet" />
 </head>
 <body class="site-page page-home1" id="top">
 
@@ -65,7 +65,7 @@
 
     <!-- Right Controls -->
     <div class="nav-actions">
-      <button aria-label="Toggle light or dark theme" class="iconbtn" id="themeToggle" title="Toggle light and dark mode">&#9679;</button>
+      <button aria-label="Toggle light or dark theme" class="iconbtn" id="themeToggle" title="Toggle light and dark mode">&#9679;�</button>
       <button aria-label="Toggle right-to-left layout" class="iconbtn" id="rtlToggle" title="Toggle RTL">RTL</button>
       <a class="loginbtn" href="login.html">
         <span>Couples Login</span> 
@@ -139,12 +139,12 @@
     <!-- SECTION 2: The Atelier Philosophy & Heritage Artistry -->
     <section class="section" id="atelier-philosophy" data-section="2">
       <div class="container">
-        <div class="story-grid" style="display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(36px,5vw,76px); align-items:center;">
+        <div class="story-grid">
           <div class="reveal slide-left" style="position:relative;">
             <figure style="width:90%; aspect-ratio:4/5; border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--champagne); box-shadow:var(--shadow-lg);">
               <img src="assets/images/unique/h1-story-1.jpg" alt="Palatial floral wedding architecture and luxury ballroom celebration" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
             </figure>
-            <div style="position:absolute; bottom:-16px; inset-inline-end:0; background:var(--paper); border:1.5px solid var(--line-accent); padding:14px 22px; border-radius:var(--radius-md); box-shadow:var(--shadow-md);">
+            <div class="creed-badge" style="position:absolute; bottom:-16px; inset-inline-end:0; background:var(--paper); border:1.5px solid var(--line-accent); padding:14px 22px; border-radius:var(--radius-md); box-shadow:var(--shadow-md);">
               <span style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--champagne); font-weight:700; display:block;">THE FLORA &amp; FABLE CREED</span>
               <strong style="font-size:16px; color:var(--ink);">Architectural Grandeur &middot; Sacred Heritage</strong>
             </div>
@@ -173,9 +173,9 @@
         </div>
 
         <div class="voyage-stage" tabindex="0">
-          <div class="slide__bg" style="--bg: url('assets/images/unique/h1-voyage-1.jpg')" data-current></div>
-          <div class="slide__bg" style="--bg: url('assets/images/unique/h1-voyage-2.jpg')" data-next></div>
-          <div class="slide__bg" style="--bg: url('assets/images/unique/h1-voyage-3.jpg')" data-previous></div>
+          <div class="slide__bg" style="--bg: url('../images/unique/h1-voyage-1.jpg')" data-current></div>
+          <div class="slide__bg" style="--bg: url('../images/unique/h1-voyage-2.jpg')" data-next></div>
+          <div class="slide__bg" style="--bg: url('../images/unique/h1-voyage-3.jpg')" data-previous></div>
 
           <div class="voyage-slider">
             <button class="slider--btn slider--btn__prev" type="button" aria-label="Previous wedding slide">
@@ -313,7 +313,7 @@
           <p style="font-size:18px; color:var(--muted); line-height:1.7;">From the sacred Agni kund of the Vedic Mandap to the royal candlelight of the Nikah and Dawat-e-Walima, Flora &amp; Fable crafts immersive, culturally reverent celebrations with zero logistical stress.</p>
         </div>
 
-        <div class="traditions-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:clamp(24px,3vw,40px);">
+        <div class="traditions-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap:clamp(24px,3vw,40px);">
           
           <!-- HINDU VIVAH CARD (Aarav & Ananya) -->
           <article class="tradition-card reveal slide-left" style="background:var(--paper); border-radius:var(--radius-lg); border:1.5px solid var(--line-accent); padding:clamp(24px,3vw,36px); box-shadow:var(--shadow-md); display:flex; flex-direction:column; justify-content:space-between;">
@@ -570,10 +570,10 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="assets/js/app.js?v=7.0"></script>
-  <script src="assets/js/voyage-slider.js?v=7.0"></script>
-  <script src="assets/js/split-cards.js?v=7.0"></script>
-  <script src="assets/js/motion.js?v=7.0"></script>
-  <script src="assets/js/effects.js?v=7.0"></script>
+  <script src="assets/js/app.js?v=9.0"></script>
+  <script src="assets/js/voyage-slider.js?v=9.0"></script>
+  <script src="assets/js/split-cards.js?v=9.0"></script>
+  <script src="assets/js/motion.js?v=9.0"></script>
+  <script src="assets/js/effects.js?v=9.0"></script>
 </body>
 </html>
